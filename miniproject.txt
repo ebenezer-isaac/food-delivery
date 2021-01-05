@@ -1,0 +1,113 @@
+registration/ profile address 1
+login/ signout 2
+menu / sorting 1
+multiple restaurants / cusines
+cart
+discounts/ billing 1
+history 
+profile 1
+homepage
+
+delivery
+tracking
+feedback 1
+help/ faq
+
+
+html/ js
+xml
+
+ide : vs code
+
+
+
+slide 1 name/topic
+slide 2 summary/introduction
+	A web application to facilitate online ordering of dishes for restuarants and their delivery through a user friendly interface for the customers.
+	
+slide 3 language/ide
+
+slide 4 Profile :
+	Customer Name
+	phone number
+	address
+
+slide 5 main menu : 
+	sorting by cusines
+	multiple restaurants
+	add to cart
+
+slide 6 Order:
+	Order from cart 
+	delivery address
+	order confirmation
+	Tracking
+	Delivery Valet
+	Order Completion
+	Feedback
+
+slide 7 thank you
+
+
+xml/database
+
+login : username/emailid, password
+profie : customerid , name, profile address, phone number, preferences
+	History: orderid
+orders : orderid , customerid, dishid, restaurantid , order price
+restaurants : restaruantid, name, rating, address, veg/nonveg/, 
+	Dishes: 
+		dishid, name , veg/nonveg, price
+
+login.xml
+>credentials
+ >emailid/phone
+  >password in sha256
+
+profile.xml
+>customers
+ >customerid
+  >emailid/phone
+  >name
+  >profile address
+  >address
+  >preferences
+  >history
+   >orderid 1
+   >orderid 2
+ >customerid
+  >name
+  >...
+  >orders
+   >orderid
+
+history.xml
+>orders
+ >orderid 1
+  >restaruant id
+  >date/time
+  >delivery address 
+  >dishes 
+   >dishid1
+    >dish1price
+    >quantity
+   >dishid2
+    >dish2price
+    >quantity
+  >delivery status (delivered/On the way/Cancelled)
+  >feedback
+  
+
+restaurant.xml
+>restaurants
+ >restaruantid
+ >name
+ >rating
+ >address
+ >dishes
+  >dishid
+  >dish name
+  >dish price
+
+deliveryagent.xml
+
