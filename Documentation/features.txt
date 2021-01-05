@@ -1,0 +1,14 @@
+registration/ profile address 1
+login/ signout 2
+menu / sorting 1
+multiple restaurants / cusines
+cart
+discounts/ billing 1
+history 
+profile 1
+homepage
+
+delivery
+tracking
+feedback 1
+help/ faq
