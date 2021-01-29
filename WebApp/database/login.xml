@@ -1,0 +1,32 @@
+<credentials>
+	<customer>
+		<customer_id>cust_00001</customer_id>
+		<email_id>ebenezerv99@gmail.com</email_id>
+		<password>312433c28349f63c4f387953ff337046e794bea0f9b9ebfcb08e90046ded9c76</password>
+	</customer>
+	<customer>
+		<customer_id>cust_00002</customer_id>
+		<email_id>agusta@gmail.com</email_id>
+		<password>312433c28349f63c4f387953ff337046e794bea0f9b9ebfcb08e90046ded9c76</password>
+	</customer>
+	<customer>
+		<customer_id>cust_00003</customer_id>
+		<email_id>edison@gmail.com</email_id>
+		<password>312433c28349f63c4f387953ff337046e794bea0f9b9ebfcb08e90046ded9c76</password>
+	</customer>
+	<customer>
+		<customer_id>cust_00004</customer_id>
+		<email_id>gayathri@gmail.com</email_id>
+		<password>312433c28349f63c4f387953ff337046e794bea0f9b9ebfcb08e90046ded9c76</password>
+	</customer>
+	<customer>
+		<customer_id>cust_00005</customer_id>
+		<email_id>gowshikkumar@gmail.com</email_id>
+		<password>312433c28349f63c4f387953ff337046e794bea0f9b9ebfcb08e90046ded9c76</password>
+	</customer>
+	<customer>
+		<customer_id>cust_00006</customer_id>
+		<email_id>esther@gmail.com</email_id>
+		<password>312433c28349f63c4f387953ff337046e794bea0f9b9ebfcb08e90046ded9c76</password>
+	</customer>
+</credentials>
