@@ -1,24 +1,31 @@
-
+<!-- 
 <?xml version="1.0" encoding="UTF-8"?> 
-<?xml_stylesheet Type=”text/xsl” href=”res.xsl”?> 
-
-
-
-<res_log
-xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-xsi:noNamespaceSchemaLocation="res.xsd">
-
-<res> 
-    	<id>12345</id>
-	<name>Copeer kitchen</name> 
-     	<rating>4.2/5</rating> 
+<?xml_stylesheet Type="text/xsl” href=”res.xsl”?> xmlns:xsi= "http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="res.xsd" -->
+<restaurants>
+    <res> 
+        <id>12345</id>
+    	<name>Copeer kitchen</name> 
+        <rating>4.2/5</rating> 
         <address>No.5, Arunachalam Road,Opp Prasad Studio, Saligramam,Vadapalani, Chennai - 600093</address> 
-     	<dishes>non-veg</dishes> 
-     	<dish_id>21345</dish_id> 
-	<dish_name>Chicken Briyani</dish_name>
-        <price> 240 </price>
-</res> 
-<res> 
+        <dishes>
+            <dish>
+                <diet_type>nv</diet_type> 
+                <category>Indian</category>
+                <dish_id>dish_21342</dish_id> 
+                <dish_name>Chicken Briyani</dish_name>
+                <price>240</price>
+            </dish>
+            <dish>
+                <diet_type>nv</diet_type> 
+                <category>Indian</category>
+                <dish_id>dish_21345</dish_id> 
+                <dish_name>Chicken Tikka</dish_name>
+                <price>240</price>
+            </dish>
+        </dishes>
+    </res>
+</restaurants> 
+   <!--  <res> 
     	<id>12346</id>
 	<name>Copeer kitchen</name> 
      	<rating>4.2/5</rating> 
@@ -159,6 +166,4 @@ xsi:noNamespaceSchemaLocation="res.xsd">
 	<dish_name>tomato rice</dish_name>
         <price> 70 </price>
 </res> 
-
-</res_log>
-
+ -->
