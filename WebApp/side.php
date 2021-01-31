@@ -48,6 +48,10 @@ if (isset($_SESSION["customer_id"])) {
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="javascript:setContent('calendar.php');" style="color:black">
+                            <i style='margin:5px' class="fas fa-calendar-alt"></i><span>Restuarant</span></a> 
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="javascript:setContent('calendar.php');" style="color:black">
                             <i style='margin:5px' class="fas fa-calendar-alt"></i><span>Search</span></a> 
                     </li>
                     <li class="nav-item"> 
