@@ -4,15 +4,14 @@ $page = "Organizer profile";
 date_default_timezone_set("Asia/Calcutta");
 session_start();
 if (isset($_SESSION["customer_id"])) {
-    ?>
-    <img style='width:150px;height:150px;' src='img/ebi.png'><br><br>
-    <font size=5><b>Ebenezer Isaac</b></font>
-    <br><br>
-    4<sup>th</sup> May 1999
-    <br><br>
-    21, Nakshatra Enclave,<br> Spun Villa, Behind Railway Station,<br>Alkapuri, Vadodara<br> Gujarat - 390007
-    <?php
-
-} else {
-    echo "<script>window.location.replace('index.php');</script>";
+	$xml = simplexml_load_file("./database/profile.xml");
+	foreach ($xml->customer as $customer) {
+		if($_SESSION["customer_id"] == (string)$customer->customerid){?>
+		    <font size=5><b><?php echo (string)$customer->name; ?></b></font>
+		    <br><?php echo (string)$customer->emailid; ?>
+		    <br><?php echo (string)$customer->phonenumber; ?>
+		    <br><br>
+		    <?php echo (string)$customer->address;
+		}
+	}
 }

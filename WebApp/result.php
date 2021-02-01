@@ -1,50 +1,51 @@
 <?php
 $search_text = $_GET['search'];
-$result="";
-$xml = simplexml_load_file("./database/restaurant.xml");
-	foreach ($xml->res as $res) {
-		// echo $res->name."<br>";
-		foreach ($res->dishes->dish as $dish) {
+if(strlen($search_text)>0){
+	$xml = simplexml_load_file("./database/restaurants.xml");
+	foreach ($xml->restaurant as $restaurant) {
+		// echo $restaurant->name."<br>";
+		foreach ($restaurant->dishes->dish as $dish) {
 			// echo $dish."<br>";
 			// echo "xml : ".trim(strtolower((string)$dish->dish_name));
 			// echo "<br>text : ".trim(strtolower($search_text));
-			if (strpos(trim(strtolower((string)$dish->dish_name)), trim(strtolower($search_text))) !== false){
-				$dish["res_name"]=(string)$res->name;
-				$dish["res_id"]=(string)$res->id;
-				$dish["res_rating"]=(string)$res->rating;
-				$dish["res_address"]=(string)$res->address;
-				$dish["dish_id"]=(string)$dish->diet_id;
-				$dish["dish_name"]=(string)$dish->dish_name;
-				$dish["diet_type"]=(string)$res->diet_type;
-				$dish["category"]=(string)$res->category;
-				$dish["price"]=(string)$res->price;
-				foreach ($dish as $key => $value) {
-    				echo "Key: $key; Value: $value<br>\n";
-				}
+			if (strpos(trim(strtolower((string)$dish->dish_name)), trim(strtolower($search_text))) !== false){?>
+				<div class='col-xl-4 col-sm-6 mb-3' align='center'>
+					<?php 
+					#echo "<script>alert(".(string)$restaurant->dish_cat.");</script>";
+					if((string)$dish->dish_cat=="Veg"){
+						echo "<div class='card text-white bg-success o-hidden h-100'>";
+					}else{
+						echo "<div class='card text-white bg-danger o-hidden h-100'>";
+					}
+					?>
+						<a class='card-header text-white clearfix'>
+							<span class='float-middle'>
+								<?php echo (string)$dish->dish_name." (".(string)$dish->dish_cat.")"; ?>
+								<br>
+								<?php echo (string)$restaurant->name." (".(string)$restaurant->rating.")"; ?>
+							</span>
+						</a>
+						<div class='card-body'>
+							<div class='card-body-icon'>
+				            	<i class="fas fa-utensils"></i>
+							</div>
+							<div class='mr-2' align='center'>
+								<?php echo "<img src='".(string)$dish->dish_pic."'>";?>
+							</div>
+						</div>
+						<br><br>
+						<a class='card-footer text-white clearfix small z-1' 
+						href="javascript:setContent('/restaurant?id="+ <?php echo (string)$restaurant->id; ?> + 
+													"&dishid=" + <?php echo (string)$restaurant->id; ?> + "' );" >
+							<span class='float-left'><?php echo (string)$restaurant->address; ?></span>
+							<span class='float-right'>
+								<?php echo "Rs.".(string)$dish->price; ?><i class='fas fa-angle-right'></i>
+							</span>
+						</a>
+					</div>
+				</div>
+				<?php
 			}
-			echo "<br>\n";    
 		}
-	}
-echo $result;
-	// if($email == (string)$customer->email_id && $hashed == (string)$customer->password ){
-	// 		session_start();
- //        	$_SESSION["customer_id"]=(string)$customer->customer_id;
- //        	exit("1");	
- //            echo (string)$customer->customer_id;
-	// 	}	
-
-
-	// 	    <res> 
- //        <id>12345</id>
- //    	<name>Copeer kitchen</name> 
- //        <rating>4.2/5</rating> 
- //        <address>No.5, Arunachalam Road,Opp Prasad Studio, Saligramam,Vadapalani, Chennai - 600093</address> 
- //        <dishes>
- //            <dish>
- //                <diet_type>nv</diet_type> 
- //                <category>Indian</category>
- //                <dish_id>dish_21342</dish_id> 
- //                <dish_name>Chicken Briyani</dish_name>
- //                <price> 240 </price>
- //            <dish>
- //           
+	}	
+}

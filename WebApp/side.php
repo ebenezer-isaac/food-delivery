@@ -47,24 +47,24 @@ if (isset($_SESSION["customer_id"])) {
                             <i style='margin:5px' class="fas fa-home"></i><span>Home</span></a> 
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="javascript:setContent('calendar.php');" style="color:black">
-                            <i style='margin:5px' class="fas fa-calendar-alt"></i><span>Restuarant</span></a> 
+                        <a class="nav-link" href="javascript:setContent('restaurant.php');" style="color:black">
+                            <i style='margin:5px' class="fas fa-utensils"></i><span>Restuarant</span></a> 
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="javascript:setContent('search.php');" style="color:black">
-                            <i style='margin:5px' class="fas fa-calendar-alt"></i><span>Search</span></a> 
+                            <i style='margin:5px' class="fas fa-search"></i><span>Search</span></a> 
                     </li>
                     <li class="nav-item"> 
-                        <a class="nav-link" href="javascript:setContent('events.php');" style="color:black">
-                            <i style='margin:5px' class="fas fa-eye"></i><span>History</span></a> 
+                        <a class="nav-link" href="javascript:setContent('history.php');" style="color:black">
+                            <i style='margin:5px' class="fas fa-shipping-fast"></i><span>History</span></a> 
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="javascript:setContent('reports.php');" style="color:black">
-                            <i style='margin:5px' class="fas fa-chart-bar"></i><span>Profile</span></a> 
+                        <a class="nav-link" href="javascript:setContent('profile.php');" style="color:black">
+                            <i style='margin:5px' class="fas fa-user"></i><span>Profile</span></a> 
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="javascript:setContent('addevent.php');" style="color:black">
-                            <i style='margin:5px' class="fa fa-plus"></i><span>Logout</span></a>
+                        <a class="nav-link" href="javascript:setContent('signout.php');" style="color:black">
+                            <i style='margin:5px' class="fa fa-sign-out-alt"></i><span>Logout</span></a>
                     </li>
                     <div style="height:100%" onclick="javascript:document.getElementById('sidebarToggle').click();"></div>
                 </ul>

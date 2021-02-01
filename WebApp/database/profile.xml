@@ -1,63 +1,74 @@
-<?xmlversion="1.0"encoding="utf-8" ?>
 <profile>
-	<customers>
-		<customerid>0001</customerid>
+	<customer>
+		<customerid>cust_00001</customerid>
 		<name>Esther</name>
 		<emailid>esther@gmail.com</emailid>
 		<phonenumber>9876543210</phonenumber>
 		<address>no2,palavakkam,chennai-41.</address>
 		<preference>non-veg</preference>
 		<history>
-			<orderid1>1</orderid1>
-			<orderid2>2</orderid2>
+			<orderid>order_00001</orderid>
+			<orderid>order_00002</orderid>
 		</history>
-	</customers>
-	<customers>
-		<customerid>0002</customerid>
+	</customer>
+	<customer>
+		<customerid>cust_00002</customerid>
 		<name>Ebenezer</name>
 		<emailid>ebi@gmail.com</emailid>
 		<phonenumber>9876367210</phonenumber>
 		<address>no8,nungambakkam,chennai.</address>
 		<preference>veg</preference>
 		<history>
-			<orderid1>1</orderid1>
-			<orderid2>2</orderid2>
+			<orderid>order_00001</orderid>
+			<orderid>order_00002</orderid>
 		</history>
-	</customers>
-	<customers>
-		<customerid>0003</customerid>
+	</customer>
+	<customer>
+		<customerid>cust_00003</customerid>
 		<name>Edison</name>
 		<emailid>edison@gmail.com</emailid>
 		<phonenumber>8876549910</phonenumber>
 		<address>no10,guindy,chennai-41.</address>
 		<preference>non-veg</preference>
 		<history>
-			<orderid1>1</orderid1>
-			<orderid2>2</orderid2>
+			<orderid>order_00001</orderid>
+			<orderid>order_00002</orderid>
 		</history>
-	</customers>
-	<customers>
-		<customerid>0004</customerid>
+	</customer>
+	<customer>
+		<customerid>cust_00004</customerid>
 		<name>Gayathri</name>
 		<emailid>gayathri@gmail.com</emailid>
 		<phonenumber>7876007210</phonenumber>
 		<address>no7a,madipakkam,chennai.</address>
 		<preference>veg</preference>
 		<history>
-			<orderid1>1</orderid1>
-			<orderid2>2</orderid2>
+			<orderid>order_00001</orderid>
+			<orderid>order_00002</orderid>
 		</history>
-	</customers>
-	<customers>
-		<customerid>0005</customerid>
+	</customer>
+	<customer>
+		<customerid>cust_00005</customerid>
 		<name>Gowshik</name>
 		<emailid>gowshik@gmail.com</emailid>
 		<phonenumber>8776540010</phonenumber>
 		<address>no12,7th street, perumbakkam,chennai.</address>
 		<preference>non-veg</preference>
 		<history>
-			<orderid1>1</orderid1>
-			<orderid2>2</orderid2>
+			<orderid>order_00001</orderid>
+			<orderid>order_00002</orderid>
 		</history>
-	</customers>
+	</customer>
+	<customer>
+		<customerid>cust_00006</customerid>
+		<name>Gowshik</name>
+		<emailid>gowshikkumar@gmail.com</emailid>
+		<phonenumber>8776540010</phonenumber>
+		<address>no12,7th street, perumbakkam,chennai.</address>
+		<preference>non-veg</preference>
+		<history>
+			<orderid>order_00001</orderid>
+			<orderid>order_00002</orderid>
+		</history>
+	</customer>
 </profile>

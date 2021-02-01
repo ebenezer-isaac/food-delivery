@@ -1,0 +1,446 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<restaurants
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+xsi:noNamespaceSchemaLocation="res.xsd">
+	<restaurant>
+		<id>12345</id>
+		<name>Copeer kitchen</name>
+		<rating>4.2</rating>
+		<address>No.5, Arunachalam Road,Opp Prasad Studio, Saligramam,Vadapalani, Chennai - 600093</address>
+		<dishes>
+			<dish>
+				<dish_cat>Veg</dish_cat>
+				<dish_id>11345</dish_id>
+				<dish_name>Idli</dish_name>
+				<dish_cuisine>Indian</dish_cuisine>
+				<dish_pic>https://images.app.goo.gl/Uhyvs2pqSs6RxgZz6</dish_pic>
+				<price> 30 </price>
+			</dish>
+			<dish>
+				<dish_cat>Veg</dish_cat>
+				<dish_id>11945</dish_id>
+				<dish_name>Ghee Dosa</dish_name>
+				<dish_cuisine>Indian</dish_cuisine>
+				<dish_pic>https://images.app.goo.gl/4gEECWnvzax7WsED9</dish_pic>
+				<price> 45 </price>
+			</dish>
+			<dish>
+				<dish_cat>Veg</dish_cat>
+				<dish_id>11245</dish_id>
+				<dish_name>Pongal</dish_name>
+				<dish_cuisine>Indian</dish_cuisine>
+				<dish_pic>https://images.app.goo.gl/FgDfD3hNMtJ63QxP8</dish_pic>
+				<price> 240 </price>
+			</dish>
+			<dish>
+				<dish_cat>Veg</dish_cat>
+				<dish_id>11745</dish_id>
+				<dish_name>Pongal</dish_name>
+				<dish_cuisine>Indian</dish_cuisine>
+				<dish_pic>https://images.app.goo.gl/FgDfD3hNMtJ63QxP8</dish_pic>
+				<price> 40 </price>
+			</dish>
+			<dish>
+				<dish_cat>Veg</dish_cat>
+				<dish_id>11345</dish_id>
+				<dish_name>Poori</dish_name>
+				<dish_cuisine>Indian</dish_cuisine>
+				<dish_pic>https://images.app.goo.gl/oTeNZApbmwnp3t1v7</dish_pic>
+				<price> 65 </price>
+			</dish>
+			<dish>
+				<dish_cat>Non-Veg</dish_cat>
+				<dish_id>14345</dish_id>
+				<dish_name>Prawn Fry</dish_name>
+				<dish_cuisine>Indian</dish_cuisine>
+				<dish_pic>https://images.app.goo.gl/kDSt8Vfzp9F4rFc69</dish_pic>
+				<price> 130 </price>
+			</dish>
+			<dish>
+				<dish_cat>Non-Veg</dish_cat>
+				<dish_id>12345</dish_id>
+				<dish_name>Fish Curry</dish_name>
+				<dish_cuisine>Indian</dish_cuisine>
+				<dish_pic>https://images.app.goo.gl/7NudJr9HkgQCzmUeA</dish_pic>
+				<price> 260 </price>
+			</dish>
+			<dish>
+				<dish_cat>Non-Veg</dish_cat>
+				<dish_id>11335</dish_id>
+				<dish_name>Mutton Briyani</dish_name>
+				<dish_cuisine>Indian</dish_cuisine>
+				<dish_pic>https://images.app.goo.gl/bntg7o5HvfZXArAG9</dish_pic>
+				<price> 340 </price>
+			</dish>
+			<dish>
+				<dish_cat>Non-Veg</dish_cat>
+				<dish_id>11345</dish_id>
+				<dish_name>Chicken Briyani</dish_name>
+				<dish_cuisine>Indian</dish_cuisine>
+				<dish_pic>https://images.app.goo.gl/48n3xazGQaTaxj8b8</dish_pic>
+				<price> 240 </price>
+			</dish>
+			<dish>
+				<dish_cat>Non-Veg</dish_cat>
+				<dish_id>11346</dish_id>
+				<dish_name>Chicken Tikka</dish_name>
+				<dish_cuisine>Indian</dish_cuisine>
+				<dish_pic>https://images.app.goo.gl/Z7Qw94W1THzTgXqp7</dish_pic>
+				<price> 40 </price>
+			</dish>
+		</dishes>
+	</restaurant>
+	<restaurant>
+		<id>12346</id>
+		<name> The Anandha's</name>
+		<rating>4.2</rating>
+		<address>No.5, Arunachalam Road,Opp Prasad Studio, Saligramam,Vadapalani, Chennai - 600093</address>
+		<dishes>
+			<dish>
+				<dish_cat>Veg</dish_cat>
+				<dish_id>21345</dish_id>
+				<dish_name>Idli</dish_name>
+				<dish_cuisine>Indian</dish_cuisine>
+				<dish_pic>https://images.app.goo.gl/Uhyvs2pqSs6RxgZz6</dish_pic>
+				<price> 30 </price>
+			</dish>
+			<dish>
+				<dish_cat>Veg</dish_cat>
+				<dish_id>21945</dish_id>
+				<dish_name>Ghee Dosa</dish_name>
+				<dish_cuisine>Indian</dish_cuisine>
+				<dish_pic>https://images.app.goo.gl/4gEECWnvzax7WsED9</dish_pic>
+				<price> 45 </price>
+			</dish>
+			<dish>
+				<dish_cat>Veg</dish_cat>
+				<dish_id>21245</dish_id>
+				<dish_name>Pongal</dish_name>
+				<dish_cuisine>Indian</dish_cuisine>
+				<dish_pic>https://images.app.goo.gl/FgDfD3hNMtJ63QxP8</dish_pic>
+				<price> 240 </price>
+			</dish>
+			<dish>
+				<dish_cat>Veg</dish_cat>
+				<dish_id>21745</dish_id>
+				<dish_name>Pongal</dish_name>
+				<dish_cuisine>Indian</dish_cuisine>
+				<dish_pic>https://images.app.goo.gl/FgDfD3hNMtJ63QxP8</dish_pic>
+				<price> 40 </price>
+			</dish>
+			<dish>
+				<dish_cat>Veg</dish_cat>
+				<dish_id>21345</dish_id>
+				<dish_name>Poori</dish_name>
+				<dish_cuisine>Indian</dish_cuisine>
+				<dish_pic>https://images.app.goo.gl/oTeNZApbmwnp3t1v7</dish_pic>
+				<price> 65 </price>
+			</dish>
+			<dish>
+				<dish_cat>Non-Veg</dish_cat>
+				<dish_id>24345</dish_id>
+				<dish_name>Prawn Fry</dish_name>
+				<dish_cuisine>Indian</dish_cuisine>
+				<dish_pic>https://images.app.goo.gl/kDSt8Vfzp9F4rFc69</dish_pic>
+				<price> 130 </price>
+			</dish>
+			<dish>
+				<dish_cat>Non-Veg</dish_cat>
+				<dish_id>22345</dish_id>
+				<dish_name>Fish Curry</dish_name>
+				<dish_cuisine>Indian</dish_cuisine>
+				<dish_pic>https://images.app.goo.gl/7NudJr9HkgQCzmUeA</dish_pic>
+				<price> 260 </price>
+			</dish>
+			<dish>
+				<dish_cat>Non-Veg</dish_cat>
+				<dish_id>21335</dish_id>
+				<dish_name>Mutton Briyani</dish_name>
+				<dish_cuisine>Indian</dish_cuisine>
+				<dish_pic>https://images.app.goo.gl/bntg7o5HvfZXArAG9</dish_pic>
+				<price> 340 </price>
+			</dish>
+			<dish>
+				<dish_cat>Non-Veg</dish_cat>
+				<dish_id>21345</dish_id>
+				<dish_name>Chicken Briyani</dish_name>
+				<dish_cuisine>Indian</dish_cuisine>
+				<dish_pic>https://images.app.goo.gl/48n3xazGQaTaxj8b8</dish_pic>
+				<price> 240 </price>
+			</dish>
+			<dish>
+				<dish_cat>Non-Veg</dish_cat>
+				<dish_id>21346</dish_id>
+				<dish_name>Chicken Tikka</dish_name>
+				<dish_cuisine>Indian</dish_cuisine>
+				<dish_pic>https://images.app.goo.gl/Z7Qw94W1THzTgXqp7</dish_pic>
+				<price> 40 </price>
+			</dish>
+		</dishes>
+	</restaurant>
+	<restaurant>
+		<id>12347</id>
+		<name>Cookker's kitchen</name>
+		<rating>4</rating>
+		<address>No.5, Pandiyan street , Saligramam,Vadapalani, chennai - 600097</address>
+		<dishes>
+			<dish>
+				<dish_cat>Veg</dish_cat>
+				<dish_id>31345</dish_id>
+				<dish_name>Idli</dish_name>
+				<dish_cuisine>Indian</dish_cuisine>
+				<dish_pic>https://images.app.goo.gl/Uhyvs2pqSs6RxgZz6</dish_pic>
+				<price> 30 </price>
+			</dish>
+			<dish>
+				<dish_cat>Veg</dish_cat>
+				<dish_id>31945</dish_id>
+				<dish_name>Ghee Dosa</dish_name>
+				<dish_cuisine>Indian</dish_cuisine>
+				<dish_pic>https://images.app.goo.gl/4gEECWnvzax7WsED9</dish_pic>
+				<price> 45 </price>
+			</dish>
+			<dish>
+				<dish_cat>Veg</dish_cat>
+				<dish_id>31245</dish_id>
+				<dish_name>Pongal</dish_name>
+				<dish_cuisine>Indian</dish_cuisine>
+				<dish_pic>https://images.app.goo.gl/FgDfD3hNMtJ63QxP8</dish_pic>
+				<price> 240 </price>
+			</dish>
+			<dish>
+				<dish_cat>Veg</dish_cat>
+				<dish_id>31745</dish_id>
+				<dish_name>Pongal</dish_name>
+				<dish_cuisine>Indian</dish_cuisine>
+				<dish_pic>https://images.app.goo.gl/FgDfD3hNMtJ63QxP8</dish_pic>
+				<price> 40 </price>
+			</dish>
+			<dish>
+				<dish_cat>Veg</dish_cat>
+				<dish_id>31345</dish_id>
+				<dish_name>Poori</dish_name>
+				<dish_cuisine>Indian</dish_cuisine>
+				<dish_pic>https://images.app.goo.gl/oTeNZApbmwnp3t1v7</dish_pic>
+				<price> 65 </price>
+			</dish>
+			<dish>
+				<dish_cat>Non-Veg</dish_cat>
+				<dish_id>34345</dish_id>
+				<dish_name>Prawn Fry</dish_name>
+				<dish_cuisine>Indian</dish_cuisine>
+				<dish_pic>https://images.app.goo.gl/kDSt8Vfzp9F4rFc69</dish_pic>
+				<price> 130 </price>
+			</dish>
+			<dish>
+				<dish_cat>Non-Veg</dish_cat>
+				<dish_id>32345</dish_id>
+				<dish_name>Fish Curry</dish_name>
+				<dish_cuisine>Indian</dish_cuisine>
+				<dish_pic>https://images.app.goo.gl/7NudJr9HkgQCzmUeA</dish_pic>
+				<price> 260 </price>
+			</dish>
+			<dish>
+				<dish_cat>Non-Veg</dish_cat>
+				<dish_id>31335</dish_id>
+				<dish_name>Mutton Briyani</dish_name>
+				<dish_cuisine>Indian</dish_cuisine>
+				<dish_pic>https://images.app.goo.gl/bntg7o5HvfZXArAG9</dish_pic>
+				<price> 340 </price>
+			</dish>
+			<dish>
+				<dish_cat>Non-Veg</dish_cat>
+				<dish_id>31345</dish_id>
+				<dish_name>Chicken Briyani</dish_name>
+				<dish_cuisine>Indian</dish_cuisine>
+				<dish_pic>https://images.app.goo.gl/48n3xazGQaTaxj8b8</dish_pic>
+				<price> 240 </price>
+			</dish>
+			<dish>
+				<dish_cat>Non-Veg</dish_cat>
+				<dish_id>31346</dish_id>
+				<dish_name>Chicken Tikka</dish_name>
+				<dish_cuisine>Indian</dish_cuisine>
+				<dish_pic>https://images.app.goo.gl/Z7Qw94W1THzTgXqp7</dish_pic>
+				<price> 40 </price>
+			</dish>
+		</dishes>
+	</restaurant>
+	<restaurant>
+		<id>12348</id>
+		<name>Lakshmi Vilas</name>
+		<rating>3.9</rating>
+		<address>No.10,Opp Prasad Studio, Vadapalani, Chennai - 600093</address>
+		<dishes>
+			<dish>
+				<dish_cat>Veg</dish_cat>
+				<dish_id>41345</dish_id>
+				<dish_name>Idli</dish_name>
+				<dish_cuisine>Indian</dish_cuisine>
+				<dish_pic>https://images.app.goo.gl/Uhyvs2pqSs6RxgZz6</dish_pic>
+				<price> 30 </price>
+			</dish>
+			<dish>
+				<dish_cat>Veg</dish_cat>
+				<dish_id>41945</dish_id>
+				<dish_name>Ghee Dosa</dish_name>
+				<dish_cuisine>Indian</dish_cuisine>
+				<dish_pic>https://images.app.goo.gl/4gEECWnvzax7WsED9</dish_pic>
+				<price> 45 </price>
+			</dish>
+			<dish>
+				<dish_cat>Veg</dish_cat>
+				<dish_id>41245</dish_id>
+				<dish_name>Pongal</dish_name>
+				<dish_cuisine>Indian</dish_cuisine>
+				<dish_pic>https://images.app.goo.gl/FgDfD3hNMtJ63QxP8</dish_pic>
+				<price> 240 </price>
+			</dish>
+			<dish>
+				<dish_cat>Veg</dish_cat>
+				<dish_id>41745</dish_id>
+				<dish_name>Pongal</dish_name>
+				<dish_cuisine>Indian</dish_cuisine>
+				<dish_pic>https://images.app.goo.gl/FgDfD3hNMtJ63QxP8</dish_pic>
+				<price> 40 </price>
+			</dish>
+			<dish>
+				<dish_cat>Veg</dish_cat>
+				<dish_id>41345</dish_id>
+				<dish_name>Poori</dish_name>
+				<dish_cuisine>Indian</dish_cuisine>
+				<dish_pic>https://images.app.goo.gl/oTeNZApbmwnp3t1v7</dish_pic>
+				<price> 65 </price>
+			</dish>
+			<dish>
+				<dish_cat>Non-Veg</dish_cat>
+				<dish_id>44345</dish_id>
+				<dish_name>Prawn Fry</dish_name>
+				<dish_cuisine>Indian</dish_cuisine>
+				<dish_pic>https://images.app.goo.gl/kDSt8Vfzp9F4rFc69</dish_pic>
+				<price> 130 </price>
+			</dish>
+			<dish>
+				<dish_cat>Non-Veg</dish_cat>
+				<dish_id>42345</dish_id>
+				<dish_name>Fish Curry</dish_name>
+				<dish_cuisine>Indian</dish_cuisine>
+				<dish_pic>https://images.app.goo.gl/7NudJr9HkgQCzmUeA</dish_pic>
+				<price> 260 </price>
+			</dish>
+			<dish>
+				<dish_cat>Non-Veg</dish_cat>
+				<dish_id>41335</dish_id>
+				<dish_name>Mutton Briyani</dish_name>
+				<dish_cuisine>Indian</dish_cuisine>
+				<dish_pic>https://images.app.goo.gl/bntg7o5HvfZXArAG9</dish_pic>
+				<price> 340 </price>
+			</dish>
+			<dish>
+				<dish_cat>Non-Veg</dish_cat>
+				<dish_id>41345</dish_id>
+				<dish_name>Chicken Briyani</dish_name>
+				<dish_cuisine>Indian</dish_cuisine>
+				<dish_pic>https://images.app.goo.gl/48n3xazGQaTaxj8b8</dish_pic>
+				<price> 240 </price>
+			</dish>
+			<dish>
+				<dish_cat>Non-Veg</dish_cat>
+				<dish_id>41346</dish_id>
+				<dish_name>Chicken Tikka</dish_name>
+				<dish_cuisine>Indian</dish_cuisine>
+				<dish_pic>https://images.app.goo.gl/Z7Qw94W1THzTgXqp7</dish_pic>
+				<price> 40 </price>
+			</dish>
+		</dishes>
+	</restaurant>
+	<restaurant>
+		<id>12348</id>
+		<name> Junior Chef's </name>
+		<rating>4.8</rating>
+		<address>no.15,Brindhavan road ,santhom,chennai-20</address>
+		<dishes>
+			<dish>
+				<dish_cat>Veg</dish_cat>
+				<dish_id>51345</dish_id>
+				<dish_name>Idli</dish_name>
+				<dish_cuisine>Indian</dish_cuisine>
+				<dish_pic>https://images.app.goo.gl/Uhyvs2pqSs6RxgZz6</dish_pic>
+				<price> 30 </price>
+			</dish>
+			<dish>
+				<dish_cat>Veg</dish_cat>
+				<dish_id>51945</dish_id>
+				<dish_name>Ghee Dosa</dish_name>
+				<dish_cuisine>Indian</dish_cuisine>
+				<dish_pic>https://images.app.goo.gl/4gEECWnvzax7WsED9</dish_pic>
+				<price> 45 </price>
+			</dish>
+			<dish>
+				<dish_cat>Veg</dish_cat>
+				<dish_id>51245</dish_id>
+				<dish_name>Pongal</dish_name>
+				<dish_cuisine>Indian</dish_cuisine>
+				<dish_pic>https://images.app.goo.gl/FgDfD3hNMtJ63QxP8</dish_pic>
+				<price> 240 </price>
+			</dish>
+			<dish>
+				<dish_cat>Veg</dish_cat>
+				<dish_id>51745</dish_id>
+				<dish_name>Pongal</dish_name>
+				<dish_cuisine>Indian</dish_cuisine>
+				<dish_pic>https://images.app.goo.gl/FgDfD3hNMtJ63QxP8</dish_pic>
+				<price> 40 </price>
+			</dish>
+			<dish>
+				<dish_cat>Veg</dish_cat>
+				<dish_id>51345</dish_id>
+				<dish_name>Poori</dish_name>
+				<dish_cuisine>Indian</dish_cuisine>
+				<dish_pic>https://images.app.goo.gl/oTeNZApbmwnp3t1v7</dish_pic>
+				<price> 65 </price>
+			</dish>
+			<dish>
+				<dish_cat>Non-Veg</dish_cat>
+				<dish_id>54345</dish_id>
+				<dish_name>Prawn Fry</dish_name>
+				<dish_cuisine>Indian</dish_cuisine>
+				<dish_pic>https://images.app.goo.gl/kDSt8Vfzp9F4rFc69</dish_pic>
+				<price> 130 </price>
+			</dish>
+			<dish>
+				<dish_cat>Non-Veg</dish_cat>
+				<dish_id>52345</dish_id>
+				<dish_name>Fish Curry</dish_name>
+				<dish_cuisine>Indian</dish_cuisine>
+				<dish_pic>https://images.app.goo.gl/7NudJr9HkgQCzmUeA</dish_pic>
+				<price> 260 </price>
+			</dish>
+			<dish>
+				<dish_cat>Non-Veg</dish_cat>
+				<dish_id>51335</dish_id>
+				<dish_name>Mutton Briyani</dish_name>
+				<dish_cuisine>Indian</dish_cuisine>
+				<dish_pic>https://images.app.goo.gl/bntg7o5HvfZXArAG9</dish_pic>
+				<price> 340 </price>
+			</dish>
+			<dish>
+				<dish_cat>Non-Veg</dish_cat>
+				<dish_id>51345</dish_id>
+				<dish_name>Chicken Briyani</dish_name>
+				<dish_cuisine>Indian</dish_cuisine>
+				<dish_pic>https://images.app.goo.gl/48n3xazGQaTaxj8b8</dish_pic>
+				<price> 240 </price>
+			</dish>
+			<dish>
+				<dish_cat>Non-Veg</dish_cat>
+				<dish_id>51346</dish_id>
+				<dish_name>Chicken Tikka</dish_name>
+				<dish_cuisine>Indian</dish_cuisine>
+				<dish_pic>https://images.app.goo.gl/Z7Qw94W1THzTgXqp7</dish_pic>
+				<price> 40 </price>
+			</dish>
+		</dishes>
+	</restaurant>
+</restaurants>
+
