@@ -86,7 +86,7 @@ if (isset($_SESSION["customer_id"])) {
 										<?php echo "Delivery Address : ".(string)$order->delivery_address; ?>
 									</span>
 									<span class='float-right'>
-										<?php echo "Delivery Address : ".(string)$order->agent_id; ?>
+										<?php echo "Delivery Agent : ".(string)$order->agent_id; ?>
 									</span>
 								</div>
 							</div>

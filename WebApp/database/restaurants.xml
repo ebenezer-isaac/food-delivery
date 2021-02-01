@@ -4,7 +4,7 @@
 xsi:noNamespaceSchemaLocation="res.xsd">
 	<restaurant>
 		<id>12345</id>
-		<name>Copeer kitchen</name>
+		<name>Copeer Kitchen</name>
 		<rating>4.2</rating>
 		<address>No.5, Arunachalam Road,Opp Prasad Studio, Saligramam,Vadapalani, Chennai - 600093</address>
 		<dishes>
@@ -180,7 +180,7 @@ xsi:noNamespaceSchemaLocation="res.xsd">
 	</restaurant>
 	<restaurant>
 		<id>12347</id>
-		<name>Cookker's kitchen</name>
+		<name>Cookker's Kitchen</name>
 		<rating>4</rating>
 		<address>No.5, Pandiyan street , Saligramam,Vadapalani, chennai - 600097</address>
 		<dishes>

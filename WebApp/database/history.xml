@@ -23,6 +23,7 @@
     <delivery_status>Delivered</delivery_status>
     <feedback> (excellent/very good/good/fair/bad)</feedback>
   </order>
+
   <order>
     <order_id>order_00002</order_id>
     <restaurant_id>res_00012</restaurant_id>
@@ -219,6 +220,28 @@
       </dish>
     </dishes>
     <delivery_status>(delivered/on the way/cancelled)</delivery_status>
+    <feedback> (excellent/very good/good/fair/bad)</feedback>
+  </order>
+  <order>
+    <order_id>order_00011</order_id>
+    <restaurant_id>res_00013</restaurant_id>
+    <date>2020-09-24</date>
+    <time>09:00:00</time>
+    <agent_id>agent_00021</agent_id>
+    <delivery_address>no:26,murugan st,west saidapet,ch-15</delivery_address>
+    <dishes>
+      <dish>
+        <dish_id> Idli </dish_id>
+        <dishprice> 30 </dishprice>
+        <quantity> 2 </quantity>
+      </dish>
+      <dish>
+        <dish_id>Fried Rice</dish_id>
+        <dishprice> 50</dishprice>
+        <quantity> 3 </quantity>
+      </dish>
+    </dishes>
+    <delivery_status>On The Way</delivery_status>
     <feedback> (excellent/very good/good/fair/bad)</feedback>
   </order>
 </orders>     

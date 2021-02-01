@@ -3,20 +3,15 @@ $search_text = $_GET['search'];
 if(strlen($search_text)>0){
 	$xml = simplexml_load_file("./database/restaurants.xml");
 	foreach ($xml->restaurant as $restaurant) {
-		// echo $restaurant->name."<br>";
 		foreach ($restaurant->dishes->dish as $dish) {
-			// echo $dish."<br>";
-			// echo "xml : ".trim(strtolower((string)$dish->dish_name));
-			// echo "<br>text : ".trim(strtolower($search_text));
 			if (strpos(trim(strtolower((string)$dish->dish_name)), trim(strtolower($search_text))) !== false){?>
 				<div class='col-xl-4 col-sm-6 mb-3' align='center'>
 					<?php 
-					#echo "<script>alert(".(string)$restaurant->dish_cat.");</script>";
-					if((string)$dish->dish_cat=="Veg"){
-						echo "<div class='card text-white bg-success o-hidden h-100'>";
-					}else{
-						echo "<div class='card text-white bg-danger o-hidden h-100'>";
-					}
+						if((string)$dish->dish_cat=="Veg"){
+							echo "<div class='card text-white bg-success o-hidden h-100'>";
+						}else{
+							echo "<div class='card text-white bg-danger o-hidden h-100'>";
+						}
 					?>
 						<a class='card-header text-white clearfix'>
 							<span class='float-middle'>
@@ -27,7 +22,14 @@ if(strlen($search_text)>0){
 						</a>
 						<div class='card-body'>
 							<div class='card-body-icon'>
-				            	<i class="fas fa-utensils"></i>
+								<?php 
+									#echo "<script>alert(".(string)$restaurant->dish_cat.");</script>";
+									if((string)$dish->dish_cat=="Veg"){
+										echo "<i class='fas fa-seedling'></i>";
+									}else{
+										echo "<i class='fas fa-bone'></i>";
+									}
+								?>
 							</div>
 							<div class='mr-2' align='center'>
 								<?php echo "<img src='".(string)$dish->dish_pic."'>";?>
