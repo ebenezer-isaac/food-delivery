@@ -6,13 +6,13 @@ xsi:noNamespaceSchemaLocation="res.xsd">
 		<id>12345</id>
 		<name>Copeer Kitchen</name>
 		<rating>4.2</rating>
+		<cuisine>Indian</cuisine>
 		<address>No.5, Arunachalam Road,Opp Prasad Studio, Saligramam,Vadapalani, Chennai - 600093</address>
 		<dishes>
 			<dish>
 				<dish_cat>Veg</dish_cat>
-				<dish_id>11345</dish_id>
+				<dish_id>dish_00001</dish_id>
 				<dish_name>Idli</dish_name>
-				<dish_cuisine>Indian</dish_cuisine>
 				<dish_pic>https://images.app.goo.gl/Uhyvs2pqSs6RxgZz6</dish_pic>
 				<price> 30 </price>
 			</dish>
