@@ -1,0 +1,164 @@
+
+<?xml version="1.0" encoding="UTF-8"?> 
+<?xml_stylesheet Type=”text/xsl” href=”res.xsl”?> 
+
+
+
+<res_log
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+xsi:noNamespaceSchemaLocation="res.xsd">
+
+<res> 
+    	<id>12345</id>
+	<name>Copeer kitchen</name> 
+     	<rating>4.2</rating> 
+        <address>No.5, Arunachalam Road,Opp Prasad Studio, Saligramam,Vadapalani, Chennai - 600093</address> 
+     	<dishes>non-veg</dishes> 
+     	<dish_id>21345</dish_id> 
+	<dish_name>Chicken Briyani</dish_name>
+        <price> 240 </price>
+</res> 
+<res> 
+    	<id>12346</id>
+	<name>Copeer kitchen</name> 
+     	<rating>4.2</rating> 
+        <address>No.5, Arunachalam Road,Opp Prasad Studio, Saligramam,Vadapalani, Chennai - 600093</address> 
+     	<dishes>non-veg</dishes> 
+     	<dish_id>21346</dish_id> 
+	<dish_name>Chicken tikka</dish_name>
+        <price> 170 </price>
+</res> 
+<res> 
+    	<id>12347</id>
+	<name>Copeer kitchen</name> 
+     	<rating>4.2</rating> 
+        <address>No.5, Arunachalam Road,Opp Prasad Studio, Saligramam,Vadapalani, Chennai - 600093</address> 
+     	<dishes>veg</dishes> 
+     	<dish_id>21347</dish_id> 
+	<dish_name>naan</dish_name>
+        <price> 55 </price>
+</res> 
+<res> 
+    	<id>12348</id>
+	<name>Copeer kitchen</name> 
+     	<rating>4.2</rating> 
+        <address>No.5, Arunachalam Road,Opp Prasad Studio, Saligramam,Vadapalani, Chennai - 600093</address> 
+     	<dishes>non-veg</dishes> 
+     	<dish_id>21348</dish_id> 
+	<dish_name>Butter Masala</dish_name>
+        <price> 180 </price>
+</res> 
+<res> 
+    	<id>12349</id>
+	<name>Copeer kitchen</name> 
+     	<rating>4.2</rating> 
+        <address>No.5, Arunachalam Road,Opp Prasad Studio, Saligramam,Vadapalani, Chennai - 600093</address> 
+     	<dishes>non-veg</dishes> 
+     	<dish_id>21349</dish_id> 
+	<dish_name>Mutton Briyani</dish_name>
+        <price> 280 </price>
+</res> 
+<res> 
+    	<id>12355</id>
+	<name>Jalikattu R3estaurent</name> 
+     	<rating>4</rating> 
+        <address>Cuddalore Main Road,Near Nonankuppam Boat House EdayarpalayamLadmark: way to Cancer HospitalPuducherry, 605007</address> 
+     	<dishes>non-veg</dishes> 
+     	<dish_id>21355</dish_id> 
+	<dish_name>fried rice</dish_name>
+        <price> 180 </price>
+</res> 
+<res> 
+    	<id>12356</id>
+	<name>Jalikattu R3estaurent</name> 
+     	<rating>4</rating> 
+        <address>Cuddalore Main Road,Near Nonankuppam Boat House EdayarpalayamLadmark: way to Cancer HospitalPuducherry, 605007</address> 
+     	<dishes>veg</dishes> 
+     	<dish_id>21356</dish_id> 
+	<dish_name>pongal</dish_name>
+        <price> 60 </price>
+</res> 
+<res> 
+    	<id>12357</id>
+	<name>Jalikattu R3estaurent</name> 
+     	<rating>4</rating> 
+        <address>Cuddalore Main Road,Near Nonankuppam Boat House EdayarpalayamLadmark: way to Cancer HospitalPuducherry, 605007</address> 
+     	<dishes>non-veg</dishes> 
+     	<dish_id>21357</dish_id> 
+	<dish_name>grilled chicken</dish_name>
+        <price> 390 </price>
+</res> 
+<res> 
+    	<id>12358</id>
+	<name>Jalikattu R3estaurent</name> 
+     	<rating>4</rating> 
+        <address>Cuddalore Main Road,Near Nonankuppam Boat House EdayarpalayamLadmark: way to Cancer HospitalPuducherry, 605007</address> 
+     	<dishes>veg</dishes> 
+     	<dish_id>21358</dish_id> 
+	<dish_name>ghee dosa</dish_name>
+        <price> 50 </price>
+</res> 
+
+<res> 
+    	<id>12359</id>
+	<name>Jalikattu R3estaurent</name> 
+     	<rating>4</rating> 
+        <address>Cuddalore Main Road,Near Nonankuppam Boat House EdayarpalayamLadmark: way to Cancer HospitalPuducherry, 605007</address> 
+     	<dishes>veg</dishes> 
+     	<dish_id>21359</dish_id> 
+	<dish_name>vanilla milkshake</dish_name>
+        <price> 90 </price>
+</res> 
+<res> 
+    	<id>12365</id>
+	<name>Dhakshin</name> 
+     	<rating>4.7</rating> 
+        <address>Crowne Plaza Chennai Adyar Park, 132, TTK Road, Chennai, Tamil Nadu 600018</address> 
+     	<dishes>non veg</dishes> 
+     	<dish_id>21365</dish_id> 
+	<dish_name>barbeque</dish_name>
+        <price> 390 </price>
+</res> 
+<res> 
+    	<id>12366</id>
+	<name>Dhakshin</name> 
+     	<rating>4.7</rating> 
+        <address>Crowne Plaza Chennai Adyar Park, 132, TTK Road, Chennai, Tamil Nadu 600018</address> 
+     	<dishes>non veg</dishes> 
+     	<dish_id>21366</dish_id> 
+	<dish_name>lollipop</dish_name>
+        <price> 280 </price>
+</res> 
+<res> 
+    	<id>12367</id>
+	<name>Dhakshin</name> 
+     	<rating>4.7</rating> 
+        <address>Crowne Plaza Chennai Adyar Park, 132, TTK Road, Chennai, Tamil Nadu 600018</address> 
+     	<dishes>veg</dishes> 
+     	<dish_id>21367</dish_id> 
+	<dish_name>curd rice</dish_name>
+        <price> 80 </price>
+</res>
+<res> 
+    	<id>12368</id>
+	<name>Dhakshin</name> 
+     	<rating>4.7</rating> 
+        <address>Crowne Plaza Chennai Adyar Park, 132, TTK Road, Chennai, Tamil Nadu 600018</address> 
+     	<dishes>veg</dishes> 
+     	<dish_id>21368</dish_id> 
+	<dish_name>veg briyani</dish_name>
+        <price> 190 </price>
+</res> 
+<res> 
+    	<id>12369</id>
+	<name>Dhakshin</name> 
+     	<rating>4.7</rating> 
+        <address>Crowne Plaza Chennai Adyar Park, 132, TTK Road, Chennai, Tamil Nadu 600018</address> 
+     	<dishes>non veg</dishes> 
+     	<dish_id>21369</dish_id> 
+	<dish_name>tomato rice</dish_name>
+        <price> 70 </price>
+</res> 
+
+</res_log>
+
