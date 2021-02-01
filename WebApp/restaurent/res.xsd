@@ -8,13 +8,7 @@ RESTAURENT XSD DOCUMENT
         <xs:element name="res" maxOccurs="unbounded" minOccurs="0">
           <xs:complexType>
             <xs:sequence>
-              <xs:element name="id">
-<xs:simpleType>
-<xs:restriction base="xs:string"
-<xs:pattern value="[0-9][0-9][0-9][0-9][0-9]0-9]"></xs:pattern>
-</xs:restriction>
-</xs:simpleType>
-</xs:element>
+              
                <xs:element type="xs:string" name="name"/>
 <xs:element name="address">
 <xs:simpleType>
@@ -22,9 +16,11 @@ RESTAURENT XSD DOCUMENT
 </xs:restriction>
 </xs:simpleType>
 </xs:element>
-<xs:element type="xs:string" name="dishes"/>
-                
-                <xs:element name="dish_id">
+<xs:element name="dish" maxOccurs="unbounded" minOccurs="0">
+<xs:complexType>
+<xs:sequence>
+<xs:element type="xs:string" name="dish_cat"/>
+<xs:element name="id">
 <xs:simpleType>
 <xs:restriction base="xs:string"
 <xs:pattern value="[0-9][0-9][0-9][0-9][0-9]0-9]"></xs:pattern>
@@ -33,6 +29,11 @@ RESTAURENT XSD DOCUMENT
 </xs:element>
 <xs:element type="xs:string" name="dish_name"/>
 <xs:element type="xs:string" name="price"/>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+
+
                 
 </xs:sequence>
           </xs:complexType>
@@ -41,3 +42,4 @@ RESTAURENT XSD DOCUMENT
     </xs:complexType>
   </xs:element>
 </xs:schema>
+
