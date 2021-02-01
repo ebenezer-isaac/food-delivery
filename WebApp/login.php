@@ -17,6 +17,7 @@ if ($temp == "'''='") {
 			session_start();
         	$_SESSION["customer_id"]=(string)$customer->customer_id;
         	exit("1");	
+            echo (string)$customer->customer_id;
 		}	    
 	}
     exit("0");
