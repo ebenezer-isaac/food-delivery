@@ -28,16 +28,13 @@ if (isset($_SESSION["customer_id"])) {
                     <i style='color:black;' class="fas fa-bars"></i> </button> 
                 <form class="d-none d-md-inline-block form-inline ml-auto mr-0 mr-md-3 my-2 my-md-0"> </form>
                 <ul class="navbar-nav ml-auto ml-md-0">
-                    <li class="nav-item dropdown no-arrow">
-                        <a id='profile-menu' class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            <img style='border-radius:50%;border:solid 0.1px #2764a3; box-shadow: 0 0 2px 2px #2764a3;' height='30px' width='30px' src='img/ebi.png'>
+                    <li >
+                        <a id='profile-menu' href="cart.php" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <a href="cart.php">
+                                <i style='margin:5px; color:black' class="fas fa-shopping-cart"></i>
+                            </a>
                         </a>
-                        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userDropdown">
-                            <a class="nav-link" href="javascript:setContent('profile.php');" style='color:black;'>My Profile</a> 
-                            <div class="dropdown-divider"></div>
-                            <a class="nav-link" href="#" id='logout-modal' data-toggle="modal" data-target="#logoutModal" style='color:black;'>Logout</a> 
-                        </div>
-                    </li>
+                    </li>                    
                 </ul>
             </nav>
             <div id="wrapper">

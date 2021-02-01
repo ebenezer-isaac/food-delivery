@@ -8,7 +8,7 @@ if (isset($_SESSION["customer_id"])) {
     ?>
 
 <div class='col-xl-4 col-sm-6 mb-3' align='center'>
- <div class='card text-white bg-warning o-hidden h-100'>
+ <div class='card text-white bg-primary o-hidden h-100'>
  <a class='card-header text-white clearfix'>
  <span class='float-middle'>Fried Rice</span>
  </a>
