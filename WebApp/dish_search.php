@@ -31,11 +31,10 @@ if(strlen($search_text)>0){
 									}
 								?>
 							</div>
-							<div class='mr-2' align='center'>
-								<?php echo "<img src='".(string)$dish->dish_pic."'>";?>
+							<div class='mr-2 fill' align='center'>
+								<?php echo "<img src='./dishes/".(string)$dish->dish_pic."'>";?>
 							</div>
 						</div>
-						<br><br>
 						<a class='card-footer text-white clearfix small z-1' 
 						href="javascript:setContent('/restaurant?id="+ <?php echo (string)$restaurant->id; ?> + 
 													"&dishid=" + <?php echo (string)$restaurant->id; ?> + "' );" >

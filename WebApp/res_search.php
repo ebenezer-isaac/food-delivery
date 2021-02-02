@@ -1,11 +1,10 @@
-<input type="text" onkeyup="javascript:getSearch()" id="search_text">
-<br>
-<br>
-<div id='result'>
-	<?php
+<?php
+$search_text = $_GET['search'];
+if(strlen($search_text)>0){
 	$xml = simplexml_load_file("./database/restaurants.xml");
-	foreach ($xml->restaurant as $restaurant){?>
-		<div class='col-xl-12 col-sm-12 mb-3' align='center'>
+	foreach ($xml->restaurant as $restaurant){
+		if (strpos(trim(strtolower((string)$restaurant->name)), trim(strtolower($search_text))) !== false){?>
+			<div class='col-xl-12 col-sm-12 mb-3' align='center'>
 			<div class='card text-white bg-primary o-hidden h-100'>
 				<a class='card-header text-white clearfix'>
 					<span class='float-middle'>
@@ -32,13 +31,8 @@
 				</a>
 			</div>
 		</div><?php
-	} ?>
-</div>	
-<script>
-	function getSearch(){
-		var search = document.getElementById("search_text").value;
-		$.get("res_search.php?search="+search, function(data, status){
-    		document.getElementById("result").innerHTML = "<div class='row'>"+data+"</div>";
-  		});
+		}
 	}
-</script>
+}
+?>
+
