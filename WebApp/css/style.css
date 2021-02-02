@@ -1,3 +1,1133 @@
+
+
+/*--------------------------------------------------------------
+# General
+--------------------------------------------------------------*/
+body {
+ 
+  background-color: white;
+  overflow-y:scroll;
+  
+}
+
+
+a {
+  color: Black;
+}
+
+a:hover {
+  text-decoration: none;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Times New Roman', Times, serif;
+}
+
+/*--------------------------------------------------------------
+# Back to top button
+--------------------------------------------------------------*/
+.back-to-top {
+  position: fixed;
+  display: none;
+  width: 40px;
+  height: 40px;
+  border-radius: 50px;
+  right: 15px;
+  bottom: 15px;
+  background:lightgreen;
+  color: black;
+  transition: display 0.5s ease-in-out;
+  z-index: 99999;
+}
+
+.back-to-top i {
+  font-size: 24px;
+  position: absolute;
+  top: 7px;
+  left: 8px;
+}
+
+.back-to-top:hover {
+  color: #fff;
+  background: lightgreen;
+  transition: background 0.2s ease-in-out;
+}
+
+/*--------------------------------------------------------------
+# Header
+--------------------------------------------------------------*/
+#header {
+  height: 72px;
+  transition: all 0.5s;
+  z-index: 997;
+  transition: all 0.5s;
+  padding: 15px 0;
+}
+
+#header.header-scrolled {
+  background:white;
+  box-shadow: 0px 2px 15px rgba(0, 0, 0, 0.1);
+}
+
+#header .logo h1 {
+  font-size: 25px;
+  font-family: 'Times New Roman', Times, serif;
+  color:black;
+}
+
+#header .logo h1 a, #header .logo h1 a:hover {
+  color: lightgreen;
+  text-decoration: none;
+}
+
+#header .logo img {
+  padding: 0;
+  margin: 0;
+  max-height: 40px;
+}
+
+
+
+/*--------------------------------------------------------------
+# Navigation Menu
+--------------------------------------------------------------*/
+/* Desktop Navigation */
+.nav-menu, .nav-menu * {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  
+}
+
+.nav-menu > ul > li {
+  position: relative;
+  white-space: nowrap;
+  float: left;
+  
+}
+
+.nav-menu a {
+  display: block;
+  position: relative;
+  color: black;
+  padding: 8px 15px 12px 15px;
+  transition: 0.3s;
+  font-size: 17px;
+  font-family: 'Times New Roman', Times, serif;
+}
+
+.nav-menu a:hover, .nav-menu .active > a, .nav-menu li:hover > a {
+  color: lightgreen;
+  text-decoration: none;
+}
+
+.nav-menu .get-started a {
+  background:lightgreen ;
+  color: #fff;
+  border-radius: 50px;
+  margin: 0 15px;
+  padding: 10px 25px;
+}
+
+.nav-menu .get-started a:hover {
+  background: lightgreen;
+  color: #fff;
+}
+
+.nav-menu .drop-down ul {
+  display: block;
+  position: absolute;
+  left: 0;
+  top: calc(100% - 30px);
+  z-index: 99;
+  opacity: 0;
+  visibility: hidden;
+  padding: 10px 0;
+  background: black;
+  box-shadow: 0px 0px 30px rgba(127, 137, 161, 0.25);
+  transition: ease all 0.3s;
+}
+
+.nav-menu .drop-down:hover > ul {
+  opacity: 1;
+  top: 100%;
+  visibility: visible;
+  background-color: black;
+  
+}
+
+.nav-menu .drop-down li {
+  min-width: 180px;
+  position: relative;
+  background-color: black;
+}
+
+.nav-menu .drop-down ul a {
+  padding: 10px 20px;
+  font-size: 14px;
+  font-weight: 500;
+  text-transform: none;
+  color: black;
+  background-color:white;
+}
+
+.nav-menu .drop-down ul a:hover, .nav-menu .drop-down ul .active > a, .nav-menu .drop-down ul li:hover > a {
+  color:lightgreen;
+  background-color: black;
+}
+
+.nav-menu .drop-down > a:after {
+  content: "\ea99";
+  font-family: IcoFont;
+  padding-left: 5px;
+  background-color: black;
+}
+
+.nav-menu .drop-down .drop-down ul {
+  top: 0;
+  left: calc(100% - 30px);
+  background-color: black;
+}
+
+.nav-menu .drop-down .drop-down:hover > ul {
+  opacity: 1;
+  top: 0;
+  left: 100%;
+  background-color: black;
+}
+
+.nav-menu .drop-down .drop-down > a {
+  padding-right: 35px;
+  background-color: black;
+}
+
+.nav-menu .drop-down .drop-down > a:after {
+  content: "\eaa0";
+  font-family: IcoFont;
+  position: absolute;
+  right: 15px;
+  background-color: black;
+}
+
+@media (max-width: 1366px) {
+  .nav-menu .drop-down .drop-down ul {
+    left: -90%;
+    background-color: black;
+  }
+  .nav-menu .drop-down .drop-down:hover > ul {
+    left: -100%;
+    background-color: black;
+  }
+  .nav-menu .drop-down .drop-down > a:after {
+    content: "\ea9d";
+    background-color: black;
+  }
+}
+
+
+
+
+/* Mobile Navigation */
+.mobile-nav-toggle {
+  position: fixed;
+  right: 15px;
+  top: 22px;
+  z-index: 9998;
+  border: 0;
+  background: none;
+  font-size: 24px;
+  transition: all 0.4s;
+  outline: none !important;
+  line-height: 1;
+  cursor: pointer;
+  text-align: right;
+  background-color: black;
+}
+
+.mobile-nav-toggle i {
+  color:lightgreen;
+  background-color: black;
+}
+
+.mobile-nav {
+  position: fixed;
+  top: 55px;
+  right: 15px;
+  bottom: 15px;
+  left: 15px;
+  z-index: 9999;
+  overflow-y: auto;
+  background: black;
+  transition: ease-in-out 0.2s;
+  opacity: 0;
+  visibility: hidden;
+  border-radius: 10px;
+  padding: 10px 0;
+  background-color: black;
+}
+
+.mobile-nav * {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  background-color: black;
+}
+
+.mobile-nav a {
+  display: block;
+  position: relative;
+  color: #47536e;
+  padding: 10px 20px;
+  font-weight: 500;
+  outline: none;
+}
+
+.mobile-nav a:hover, .mobile-nav .active > a, .mobile-nav li:hover > a {
+  color:lightgreen;
+  text-decoration: none;
+}
+
+.mobile-nav .drop-down > a:after {
+  content: "\ea99";
+  font-family: IcoFont;
+  padding-left: 10px;
+  position: absolute;
+  right: 15px;
+}
+
+.mobile-nav .active.drop-down > a:after {
+  content: "\eaa1";
+}
+
+.mobile-nav .drop-down > a {
+  padding-right: 35px;
+}
+
+.mobile-nav .drop-down ul {
+  display: none;
+  overflow: hidden;
+}
+
+.mobile-nav .drop-down li {
+  padding-left: 20px;
+}
+
+.mobile-nav-overly {
+  width: 100%;
+  height: 100%;
+  z-index: 9997;
+  top: 0;
+  left: 0;
+  position: fixed;
+  background: rgba(35, 51, 85, 0.7);
+  overflow: hidden;
+  display: none;
+  transition: ease-in-out 0.2s;
+}
+
+.mobile-nav-active {
+  overflow: hidden;
+}
+
+.mobile-nav-active .mobile-nav {
+  opacity: 1;
+  visibility: visible;
+}
+
+.mobile-nav-active .mobile-nav-toggle i {
+  color: #fff;
+}
+
+/*--------------------------------------------------------------
+# Hero Section
+--------------------------------------------------------------*/
+.back{
+  align-items: center;
+}
+
+.img{
+ margin-top: 30px;
+  max-width: 1500px;
+  height:700px
+}
+/*--------------------------------------------------------------
+# Food Section
+--------------------------------------------------------------*/
+.fnm{
+  font-size: 25px;
+  font-family: 'Times New Roman', Times, serif;
+}
+.food{
+  display:flex;
+  float: left;
+  justify-content: space-between;
+}
+.fnm1 button{
+  padding:20px 20px;
+  outline: none;
+  border:none;
+ 
+}
+
+
+/*--------------------------------------------------------------
+# Sections General
+--------------------------------------------------------------*/
+section {
+  padding: 60px 0;
+  overflow: hidden;
+}
+
+.section-bg {
+  background-color: #f2f5fa;
+}
+
+.section-title {
+  text-align: center;
+  padding-bottom: 30px;
+}
+
+.section-title h2 {
+  font-size: 32px;
+  font-weight: 400;
+  margin-bottom: 20px;
+  padding-bottom: 0;
+  color:black;
+  font-family: "Poppins", sans-serif;
+}
+
+.section-title p {
+  margin-bottom: 0;
+}
+
+
+
+/*--------------------------------------------------------------
+# Footer
+--------------------------------------------------------------*/
+#footer{
+  background-color: black;
+  color:white;
+}
+.row{
+  justify-content: space-between;
+}
+.about2 a{
+  color:white;
+}
+.about1 a{
+  color:white;
+}
+.about1 a:hover{
+color:lightgreen;
+}
+
+.facebook:hover{
+
+  font-size: 50px;
+  color:lightskyblue;
+
+}
+
+.twitter:hover{
+
+  font-size: 50px;
+  color:lightskyblue;
+
+}
+
+.skype:hover{
+
+  font-size: 50px;
+  color:lightskyblue;
+
+}
+
+.instagram:hover{
+
+  font-size: 50px;
+  color:pink;
+
+}
+
+
+/*--------------------------------------------------------------
+# General
+--------------------------------------------------------------*/
+body {
+  font-family:'Times New Roman', Times, serif;
+  color: black;
+  background-color:white;
+  overflow-y:scroll;
+  
+}
+
+
+a {
+  color: black;
+}
+
+a:hover {
+  color: #7b94c9;
+  text-decoration: none;
+}
+
+h1,h3, h4, h5, h6 {
+  font-family:'Times New Roman', Times, serif;
+}
+
+/*--------------------------------------------------------------
+# Back to top button
+--------------------------------------------------------------*/
+.back-to-top {
+  position: fixed;
+  display: none;
+  width: 40px;
+  height: 40px;
+  border-radius: 50px;
+  right: 15px;
+  bottom: 15px;
+  background: white;
+  color: black;
+  transition: display 0.5s ease-in-out;
+  z-index: 99999;
+}
+
+.back-to-top i {
+  font-size: 24px;
+  position: absolute;
+  top: 7px;
+  left: 8px;
+}
+
+.back-to-top:hover {
+  color: black;
+  background: lightgreen;
+  transition: background 0.2s ease-in-out;
+}
+
+.img{
+max-width: 100%;
+max-height: 100%;
+margin-left: auto;
+margin-right: auto;
+display: block;     
+}
+
+/*--------------------------------------------------------------
+# Header
+--------------------------------------------------------------*/
+#header {
+  height: 72px;
+  transition: all 0.5s;
+  z-index: 997;
+  transition: all 0.5s;
+  padding: 10px 0;
+}
+
+#header.header-scrolled {
+  background: white;
+  box-shadow: 0px 2px 15px rgba(0, 0, 0, 0.1);
+}
+
+#header .logo h1 {
+  font-size: 25px;
+  margin: 0;
+  padding: 2px 0;
+  line-height: 1;
+  font-weight: 400;
+  letter-spacing: 2px;
+}
+
+#header .logo h1 a, #header .logo h1 a:hover {
+  color:darkgreen;
+  text-decoration: none;
+}
+
+#header .logo img {
+  padding: 0;
+  margin: 0;
+  max-height: 40px;
+}
+
+
+
+/*--------------------------------------------------------------
+# Navigation Menu
+--------------------------------------------------------------*/
+/* Desktop Navigation */
+.nav-menu, .nav-menu * {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  
+}
+
+.nav-menu > ul > li {
+  position: relative;
+  white-space: nowrap;
+  float: left;
+  
+}
+
+.nav-menu a {
+  display: block;
+  position: relative;
+  color: black;
+  padding: 8px 15px 12px 15px;
+  transition: 0.3s;
+  font-size: 17px;
+  font-family:'Times New Roman', Times, serif;
+}
+
+.nav-menu a:hover, .nav-menu .active > a, .nav-menu li:hover > a {
+  color: lightgreen;
+  text-decoration: none;
+}
+
+.nav-menu .get-started a {
+  background:lightgreen ;
+  color: black;
+  border-radius: 50px;
+  margin: 0 15px;
+  padding: 10px 25px;
+}
+
+.nav-menu .get-started a:hover {
+  background: lightgreen;
+  color:darkgreen;
+}
+
+.nav-menu .drop-down ul {
+  display: block;
+  position: absolute;
+  left: 0;
+  top: calc(100% - 30px);
+  z-index: 99;
+  opacity: 0;
+  visibility: hidden;
+  padding: 10px 0;
+  background: white;
+  box-shadow: 0px 0px 30px rgba(127, 137, 161, 0.25);
+  transition: ease all 0.3s;
+}
+
+.nav-menu .drop-down:hover > ul {
+  opacity: 1;
+  top: 100%;
+  visibility: visible;
+  background-color:white;
+  
+}
+
+.nav-menu .drop-down li {
+  min-width: 180px;
+  position: relative;
+  background-color:white;
+}
+
+.nav-menu .drop-down ul a {
+  padding: 10px 20px;
+  font-size: 14px;
+  font-weight: 500;
+  text-transform: none;
+  color: #233355;
+  background-color: white;
+}
+
+.nav-menu .drop-down ul a:hover, .nav-menu .drop-down ul .active > a, .nav-menu .drop-down ul li:hover > a {
+  color:lightgreen;
+  background-color: white;
+}
+
+.nav-menu .drop-down > a:after {
+  content: "\ea99";
+  font-family: IcoFont;
+  padding-left: 5px;
+  background-color: white;
+}
+
+.nav-menu .drop-down .drop-down ul {
+  top: 0;
+  left: calc(100% - 30px);
+  background-color: black;
+}
+
+.nav-menu .drop-down .drop-down:hover > ul {
+  opacity: 1;
+  top: 0;
+  left: 100%;
+  background-color: black;
+}
+
+.nav-menu .drop-down .drop-down > a {
+  padding-right: 35px;
+  background-color: black;
+}
+
+.nav-menu .drop-down .drop-down > a:after {
+  content: "\eaa0";
+  font-family: IcoFont;
+  position: absolute;
+  right: 15px;
+  background-color: black;
+}
+
+@media (max-width: 1366px) {
+  .nav-menu .drop-down .drop-down ul {
+    left: -90%;
+    background-color: black;
+  }
+  .nav-menu .drop-down .drop-down:hover > ul {
+    left: -100%;
+    background-color: black;
+  }
+  .nav-menu .drop-down .drop-down > a:after {
+    content: "\ea9d";
+    background-color: black;
+  }
+}
+
+/* Mobile Navigation */
+.mobile-nav-toggle {
+  position: fixed;
+  right: 15px;
+  top: 22px;
+  z-index: 9998;
+  border: 0;
+  background: none;
+  font-size: 24px;
+  transition: all 0.4s;
+  outline: none !important;
+  line-height: 1;
+  cursor: pointer;
+  text-align: right;
+  background-color:white;
+}
+
+.mobile-nav-toggle i {
+  color:lightgreen;
+  background-color:white;
+}
+
+.mobile-nav {
+  position: fixed;
+  top: 55px;
+  right: 15px;
+  bottom: 15px;
+  left: 15px;
+  z-index: 9999;
+  overflow-y: auto;
+  background:white;
+  transition: ease-in-out 0.2s;
+  opacity: 0;
+  visibility: hidden;
+  border-radius: 10px;
+  padding: 10px 0;
+  background-color:white;
+}
+
+.mobile-nav * {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  background-color: white;
+}
+
+.mobile-nav a {
+  display: block;
+  position: relative;
+  color: #47536e;
+  padding: 10px 20px;
+  font-weight: 500;
+  outline: none;
+}
+
+.mobile-nav a:hover, .mobile-nav .active > a, .mobile-nav li:hover > a {
+  color:lightgreen;
+  text-decoration: none;
+}
+
+.mobile-nav .drop-down > a:after {
+  content: "\ea99";
+  font-family: IcoFont;
+  padding-left: 10px;
+  position: absolute;
+  right: 15px;
+}
+
+.mobile-nav .active.drop-down > a:after {
+  content: "\eaa1";
+}
+
+.mobile-nav .drop-down > a {
+  padding-right: 35px;
+}
+
+.mobile-nav .drop-down ul {
+  display: none;
+  overflow: hidden;
+}
+
+.mobile-nav .drop-down li {
+  padding-left: 20px;
+}
+
+.mobile-nav-overly {
+  width: 100%;
+  height: 100%;
+  z-index: 9997;
+  top: 0;
+  left: 0;
+  position: fixed;
+  background: rgba(35, 51, 85, 0.7);
+  overflow: hidden;
+  display: none;
+  transition: ease-in-out 0.2s;
+}
+
+.mobile-nav-active {
+  overflow: hidden;
+}
+
+.mobile-nav-active .mobile-nav {
+  opacity: 1;
+  visibility: visible;
+}
+
+.mobile-nav-active .mobile-nav-toggle i {
+  color: #fff;
+}
+
+/*--------------------------------------------------------------
+# Hero Section
+--------------------------------------------------------------*/
+.img{
+  width: 100%;
+  max-width:600px;
+  height:auto;
+display: block;
+margin-top: 50px;
+transition: width 2s, height 2s, transform 4s;
+
+}
+.img:hover {
+  transform: rotate(180deg);
+}
+/*--------------------------------------------------------------
+# intro Section
+--------------------------------------------------------------*/
+#intro{
+display: flex;
+justify-content: space-between;
+
+
+}
+
+.intro{
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  width: auto;
+  margin: 0 auto;
+
+
+}
+
+.intro2{
+  width: 100%;
+  max-width:600px;
+  height:auto;
+  float: left;
+  margin-top: 50px;
+ 
+}
+.cont{
+ 
+margin-left: 20px;
+}
+
+.order{
+  margin-top: 20px;
+  outline: none;
+  border-radius:20px;
+  outline: none;
+  padding: 5px 20px;
+  background:lightgreen;
+  border: none;
+}
+/*--------------------------------------------------------------
+# Food Section
+--------------------------------------------------------------*/
+#Food{
+margin-top: 50px;
+}
+.cards-list {
+  z-index: 0;
+  width: 100%;
+  display: flex;
+  justify-content:space-between;
+  flex-wrap: wrap;
+  
+}
+
+.card {
+  margin: 30px auto;
+  width: 300px;
+  height: 200px;
+  cursor: pointer;
+  transition: 0.4s;
+  border:none;
+  outline-style: none;
+
+}
+.food{
+  margin-left: 100px;
+}
+
+.card .card_image {
+  width: inherit;
+  height: inherit;
+  
+}
+
+.card .card_image img {
+  width: inherit;
+  height: inherit;
+  
+  object-fit: cover;
+}
+
+.card .card_title {
+  text-align: center;
+  font-family: sans-serif;
+  font-weight: bold;
+  font-size:15px;
+  height: 40px;
+  font-family: 'Times New Roman', Times, serif;
+}
+
+.card:hover {
+  transform: scale(0.9, 0.9);
+  
+    outline-style: none;
+    outline: none;
+}
+
+.title-white {
+
+  color: black;
+}
+
+.title-black {
+  color: white;
+}
+
+@media all and (max-width: 500px) {
+  .card-list {
+    /* On small screens, we are no longer using row direction but column */
+    flex-direction: column;
+  }
+}
+.bk{
+  position: absolute;
+  margin-left: -300px;
+  margin-top: 200px;
+  padding:20px 115px;
+  background-color:#000000;
+  border:0px;
+  opacity: 0.5;
+  color:white;
+  outline:0px;
+  
+
+}
+
+
+
+
+
+/*--------------------------------------------------------------
+# Sections General
+--------------------------------------------------------------*/
+section {
+  padding: 60px 0;
+  overflow: hidden;
+}
+
+.section-bg {
+  background-color: #f2f5fa;
+}
+
+.section-title {
+  text-align: center;
+  padding-bottom: 30px;
+}
+
+.section-title h2 {
+  font-size: 32px;
+  font-weight: 400;
+  margin-bottom: 20px;
+  padding-bottom: 0;
+  color:white;
+  font-family:'Times New Roman', Times, serif;
+}
+
+.section-title p {
+  margin-bottom: 0;
+}
+
+
+
+
+  
+
+
+/*--------------------------------------------------------------
+# Footer
+--------------------------------------------------------------*/
+#footer{
+  background-color: black;
+  color:white;
+
+}
+
+h2{
+  color:white;
+}
+
+.row{
+  justify-content: space-between;
+}
+
+.about1 a{
+  color:white;
+}
+.about1 a:hover{
+color:lightgreen;
+}
+.about2 a{
+  color:white;
+  width:20px;
+  height:10px;
+}
+.about2 a:hover{
+padding:20px 10px;
+  color:lightgreen;
+}
+
+
+
+
+
+/*******************Login.html************************/
+body {
+  background-color:white;
+  font-family:'Times New Roman', Times, serif;
+}
+
+.main {
+  background-color: #FFFFFF;
+  width: 400px;
+  height: 400px;
+  margin: 7em auto;
+  border-radius: 1.5em;
+  box-shadow: 0px 11px 35px 2px rgba(0, 0, 0, 0.14);
+}
+
+.sign {
+  padding-top: 40px;
+  color: black;
+  font-family:'Times New Roman', Times, serif;
+  font-weight: bold;
+  font-size: 23px;
+}
+
+.un {
+width: 76%;
+color: rgb(38, 50, 56);
+font-weight: 700;
+font-size: 14px;
+letter-spacing: 1px;
+background: rgba(136, 126, 126, 0.04);
+padding: 10px 20px;
+border: none;
+border-radius:5px;
+outline: none;
+box-sizing: border-box;
+border: 2px solid rgba(0, 0, 0, 0.02);
+margin-bottom: 50px;
+margin-left: 46px;
+text-align: center;
+margin-bottom: 27px;
+font-family:'Times New Roman', Times, serif;
+}
+
+form.form1 {
+  padding-top: 40px;
+}
+
+.pass {
+      width: 76%;
+color: rgb(38, 50, 56);
+font-weight: 700;
+font-size: 14px;
+letter-spacing: 1px;
+background: rgba(136, 126, 126, 0.04);
+padding: 10px 20px;
+border: none;
+border-radius: 5px;
+outline: none;
+box-sizing: border-box;
+border: 2px solid rgba(0, 0, 0, 0.02);
+margin-bottom: 50px;
+margin-left: 46px;
+text-align: center;
+margin-bottom: 27px;
+font-family:'Times New Roman', Times, serif;
+}
+
+
+.un:focus, .pass:focus {
+  border: 2px solid rgba(0, 0, 0, 0.18) !important;
+  
+}
+
+.submit {
+cursor: pointer;
+  border-radius: 5em;
+  color: black;
+  background:lightgreen;
+  border: 0;
+  padding-left: 40px;
+  padding-right: 40px;
+  padding-bottom: 10px;
+  padding-top: 10px;
+  font-family:'Times New Roman', Times, serif;
+  margin-left: 33%;
+  font-size: 17px;
+  box-shadow: 0 0 20px 1px rgba(0, 0, 0, 0.04);
+}
+
+.forgot {
+  text-shadow: 0px 0px 3px rgba(117, 117, 117, 0.12);
+  color: black;
+  padding-top: 15px;
+}
+
+a {
+  text-shadow: 0px 0px 3px rgba(117, 117, 117, 0.12);
+  color: black;
+  text-decoration: none
+}
+
+@media (max-width: 600px) {
+  .main {
+      border-radius: 0px;
+  }
+  
+}
+
 @font-face {
   font-family: 'Aicon';
   src:

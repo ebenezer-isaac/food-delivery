@@ -1,0 +1,86 @@
+/* Add a black background color to the top navigation */
+body{
+    background-image: url();
+    background-repeat: no-repeat;
+    background-size: 1000px;
+}
+
+.logo{
+    font-size: 25px;
+    margin-top:-30px;
+    margin-left: 35px;
+}
+.logo1
+{
+    width:200px;
+    height:170px;
+}
+
+.sign{
+    background-color: lightgreen;
+    border:none;
+    outline: none;
+    padding: 5px 13px;
+    border-radius: 15px;
+       
+}
+
+.topnav {
+   margin-top: 30px;
+   margin-left:1120px;
+    overflow: hidden;
+  }
+  
+  /* Style the links inside the navigation bar */
+  .topnav a {
+    
+    color: black;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 17px;
+  }
+
+  .topnav :hover{
+      color: darkgreen;
+  }
+
+.img{
+    margin-top: 50px;
+    margin-left:170px;
+    max-width: 1500px;
+    height:700px
+       
+}
+.head2{
+    font-size: 30px;
+    margin-left:50px;
+    display: flex;
+}
+
+.btn{
+    margin-left: 1100px;
+   
+}
+.btn button{
+    padding:20px 20px;
+    outline: none;
+    border:none;
+}
+
+
+
+.row{
+display: flex;
+justify-content: space-between;
+}
+
+#footer{
+    background-color: black;
+    color:white;
+    font-size: 20px;
+}
+
+.section-title h2{
+    margin-left: 750px;
+}

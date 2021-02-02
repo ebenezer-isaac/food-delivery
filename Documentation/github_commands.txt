@@ -1,0 +1,7 @@
+Hello World
+
+git add .
+git config --global user.email "mail_id"
+git config --global user.name "name"
+git commit
+git push / git push origin master

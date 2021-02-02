@@ -1,0 +1,10 @@
+veg,nonveg
+indian, italian, chinese, american, french
+spicy, sour, sweet, bitter, salty
+
+cart = {
+	{"dishid" = "12334","qty" = "4"},
+	{"dishid" = "12334","qty" = "4"}
+	{"dishid" = "12334","qty" = "4"}
+	{"dishid" = "12334","qty" = "4"}
+}

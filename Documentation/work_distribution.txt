@@ -1,0 +1,20 @@
+Agusta profile.xml
+Gayathri history.xml 
+Esther restaurant.xml
+Edison deliveryagent.xml
+Ebenezer login.xml
+
+home php_itermediate edison 
+restaurant php_basic esther
+search php_adv ebi 
+history php_basic gayathri
+landing page php_adv gowshikumar
+dishes php_basic gowshikumar
+cart js agusta
+
+dish images/ ingredients gayathri today/tomorrow 
+customer gowshikkumar tmr
+login with gmail(api) -ebi tmr
+cart -agusta 
+restaurant search -esther
+home page -edison

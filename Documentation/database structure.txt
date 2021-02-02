@@ -1,0 +1,62 @@
+Ebenezer/Gowshikkumar
+login.xml
+>credentials
+ >emailid/phone
+  >password in sha256
+
+Agusta
+profile.xml
+>customers
+ >customerid 5
+  >emailid/phone
+  >name
+  >profile address
+  >address
+  >preferences
+  >history
+   >orderid 1
+   >orderid 2
+
+Gayathri
+history.xml 
+>orders 10
+ >orderid 1 5
+  >restaruant id 
+  >date/time
+  >agent_id
+  >delivery address 
+  >dishes 
+   >dishid1
+    >dish1price
+    >quantity
+   >dishid2
+    >dish2price
+    >quantity
+  >delivery status (delivered/On the way/Cancelled)
+  >feedback
+  
+Esther
+restaurant.xml
+>restaurants 3
+ >restaruantid
+ >name
+ >rating
+ >address
+ >dishes 8
+  >dishid
+  >dish name
+  >dish price
+
+Edison
+deliveryagent.xml
+>agents
+ >agent_id
+  >name 
+  >phone
+  >aadhar no
+  >age
+  >vehicle_number
+  >vehicle_model
+  >join_date
+  >rating
+
