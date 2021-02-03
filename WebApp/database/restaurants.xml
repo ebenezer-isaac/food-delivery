@@ -2,7 +2,7 @@
 <restaurants xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 xsi:noNamespaceSchemaLocation="res.xsd">
     <restaurant>
-        <id>12345</id>
+        <id>res_00001</id>
         <name>The Oberoi Grand</name>
         <rating>4.2</rating>
         <cuisine>Indian</cuisine>
@@ -91,7 +91,7 @@ xsi:noNamespaceSchemaLocation="res.xsd">
         </dishes>
     </restaurant>
     <restaurant>
-        <id>12346</id>
+        <id>res_00002</id>
         <name>Belmond Grand Hotel</name>
         <rating>4.2</rating>
         <cuisine>Italian</cuisine>
@@ -180,7 +180,7 @@ xsi:noNamespaceSchemaLocation="res.xsd">
         </dishes>
     </restaurant>
     <restaurant>
-        <id>12347</id>
+        <id>res_00003</id>
         <name>The Shilla Seoul</name>
         <rating>4</rating>
         <cuisine>Korean</cuisine>
@@ -269,7 +269,7 @@ xsi:noNamespaceSchemaLocation="res.xsd">
         </dishes>
     </restaurant>
     <restaurant>
-        <id>12348</id>
+        <id>res_00004</id>
         <name>Mandarin Oriental Pudong</name>
         <rating>3.9</rating>
         <cuisine>Chinese</cuisine>
@@ -358,7 +358,7 @@ xsi:noNamespaceSchemaLocation="res.xsd">
         </dishes>
     </restaurant>
     <restaurant>
-        <id>12348</id>
+        <id>res_00005</id>
         <name> Marriot Hotel </name>
         <rating>4.8</rating>
         <cuisine>American</cuisine>

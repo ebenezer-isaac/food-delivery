@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?xml-stylesheet type = "text/xsl" href = "agentxslt.xsl"?>
 <agents_List>
-  <agent id="10001"> 
+  <agent>
+    <id>agent_00001</id> 
     <name>Anand</name>
     <age>24</age>
     <phone>7332438982</phone>
@@ -14,7 +15,8 @@
     </address>
     <work_schedule>Full Time</work_schedule>
   </agent>
-  <agent id="10002">
+  <agent>
+    <id>agent_00002</id> 
     <name>Arun</name>
     <age>21</age>
     <phone>9876543210</phone>
@@ -27,7 +29,8 @@
     </address>
     <work_schedule>Part Time</work_schedule>   
   </agent>
-  <agent id="10003">  
+  <agent>
+  <id>agent_00003</id>   
     <name>Babu</name>
     <age>23</age>
     <phone>883282093</phone>
@@ -40,7 +43,8 @@
     </address>
     <work_schedule>Full Time</work_schedule>     
   </agent>
-  <agent id="10004">
+  <agent>
+    <id>agent_00004</id> 
     <name>Daniel</name>
     <age>28</age>
     <phone>7334238987</phone>
@@ -53,7 +57,8 @@
     </address>
     <work_schedule>Full Time</work_schedule>
   </agent>
-  <agent id="10005">
+  <agent>
+    <id>agent_00005</id> 
     <name>Hari</name>
     <age>25</age>
     <phone>9080886878</phone>
@@ -66,7 +71,8 @@
     </address>
     <work_schedule>Full Time</work_schedule>    
   </agent>
-  <agent id="10006">
+  <agent>
+    <id>agent_00006</id> 
     <name>Jack</name>
     <age>33</age>
     <phone>9994516248</phone>
@@ -79,7 +85,8 @@
     </address>
     <work_schedule>Full Time</work_schedule>    
   </agent>
-  <agent id="10007">
+  <agent>
+    <id>agent_00007</id> 
     <name>Karthick</name>
     <age>21</age>
     <phone>8826614257</phone>
@@ -92,7 +99,8 @@
     </address>
     <work_schedule>Part Time</work_schedule>    
   </agent>
-  <agent id="10008">
+  <agent>
+    <id>agent_00008</id> 
     <name>Mahesh</name>
     <age>22</age>
     <phone>9080733968</phone>
@@ -105,7 +113,8 @@
     </address>
     <work_schedule>Part Time</work_schedule>    
   </agent>
-  <agent id="10009">
+  <agent>
+    <id>agent_00009</id> 
     <name>Nivin</name>
     <age>25</age>
     <phone>6383042100</phone>
@@ -118,7 +127,8 @@
     </address>
     <work_schedule>Full Time</work_schedule>    
   </agent>
-  <agent id="10010">
+  <agent>
+    <id>agent_00010</id> 
     <name>Subash</name>
     <age>21</age>
     <phone>7825124122</phone>
