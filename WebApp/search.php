@@ -5,7 +5,7 @@ Enter the Dish Name that you want to search for : <input type="text" onkeyup="ja
 <script>
 	function getSearch(){
 		var search = document.getElementById("search_text").value;
-		$.get("dish_search.php?search="+search, function(data, status){
+		$.get("dish_search.php?search="+search+"&cat=veg", function(data, status){
     		document.getElementById("result").innerHTML = "<div class='row'>"+data+"</div>";
   		});
 	}

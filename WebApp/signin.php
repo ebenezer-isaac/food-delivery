@@ -21,7 +21,7 @@ if (isset($_SESSION["customer_id"])) {
             <link rel="stylesheet" href="css/anim.css" type="text/css">
             <link rel="stylesheet" href="css/loader-index.css" type="text/css">
             <link rel="stylesheet" href="css/splash.css" type="text/css">
-            <link rel="icon" href="img/logo.png" type="image/gif">
+            <link rel="icon" href="images/logo.png" type="image/gif">
             <script src='https://www.google.com/recaptcha/api.js?onload=recaptchaOnload&render=explicit' async defer></script> 
         </head>
         <body class='unselectable'>

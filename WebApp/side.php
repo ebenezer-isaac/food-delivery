@@ -9,7 +9,7 @@ if (isset($_SESSION["customer_id"])) {
             <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
             <meta name="description" content="">
             <meta name="author" content="">
-            <link rel="icon" href="img/logo.png" type="image/gif">
+            <link rel="icon" href="images/logo.png" type="image/gif">
             <title>Food Delivery</title>
             <script src="https://kit.fontawesome.com/1ca2da442a.js" crossorigin="anonymous"></script>
             <link href="css/dataTables.bootstrap4.css" rel="stylesheet">
@@ -22,8 +22,8 @@ if (isset($_SESSION["customer_id"])) {
         </head>
         <body id="page-top">
             <nav class="navbar navbar-expand navbar-dark bg-dark static-top">
-                <img src="img/logo.png" height="40" align='center' width="40"> 
-                <a class="navbar-brand mr-1" href="about.html" style='color:black;'>Food Delivery</a>
+                <img src="images/logo.png" height="40" align='center' width="50"> 
+                <a class="navbar-brand mr-1" href="about.html" style='color:black;'>Food Club</a>
                 <button class="btn btn-link btn-sm text-white order-1 order-sm-0" id="sidebarToggle" href="#"> 
                     <i style='color:black;' class="fas fa-bars"></i> </button> 
                 <form class="d-none d-md-inline-block form-inline ml-auto mr-0 mr-md-3 my-2 my-md-0"> </form>
@@ -44,7 +44,7 @@ if (isset($_SESSION["customer_id"])) {
                             <i style='margin:5px' class="fas fa-home"></i><span>Home</span></a> 
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="javascript:setContent('restaurant.php');" style="color:black">
+                        <a class="nav-link" href="javascript:setContent('restaurants.php');" style="color:black">
                             <i style='margin:5px' class="fas fa-utensils"></i><span>Restuarant</span></a> 
                     </li>
                     <li class="nav-item">

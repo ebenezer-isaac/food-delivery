@@ -18,7 +18,7 @@ if (isset($_SESSION["customer_id"])) {
             </div>
         </div>
     </div>
-    <script>var his = [" ", "homepage"];
+    <script>var his = [" ", "home.php"];
         console.log(his);
         $(document).ready(function () {});
         window.addEventListener('popstate', function (event) {

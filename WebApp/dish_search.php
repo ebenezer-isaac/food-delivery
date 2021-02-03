@@ -1,10 +1,12 @@
 <?php
 $search_text = $_GET['search'];
+$cat = $_GET['cat'];
 if(strlen($search_text)>0){
 	$xml = simplexml_load_file("./database/restaurants.xml");
 	foreach ($xml->restaurant as $restaurant) {
 		foreach ($restaurant->dishes->dish as $dish) {
-			if (strpos(trim(strtolower((string)$dish->dish_name)), trim(strtolower($search_text))) !== false){?>
+			if (strpos(trim(strtolower((string)$dish->dish_name)), trim(strtolower($search_text))) !== false){
+				if(strpos(trim(strtolower((string)$dish->dish_cat)), trim(strtolower($cat))) !== false){?>
 				<div class='col-xl-4 col-sm-6 mb-3' align='center'>
 					<?php 
 						if((string)$dish->dish_cat=="Veg"){
@@ -32,7 +34,7 @@ if(strlen($search_text)>0){
 								?>
 							</div>
 							<div class='mr-2 fill' align='center'>
-								<?php echo "<img src='./dishes/".(string)$dish->dish_pic."'>";?>
+								<?php echo "<img src='images/dishes/".(string)$dish->dish_pic."'>";?>
 							</div>
 						</div>
 						<a class='card-footer text-white clearfix small z-1' 
@@ -46,6 +48,7 @@ if(strlen($search_text)>0){
 					</div>
 				</div>
 				<?php
+				}
 			}
 		}
 	}	

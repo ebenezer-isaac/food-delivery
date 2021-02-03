@@ -10,9 +10,9 @@
     <delivery_address>no:26,murugan st,west saidapet,ch-15</delivery_address>
     <dishes>
       <dish>
-        <dish_id> dosai_00</dish_id>
+        <dish_id> dish_00001</dish_id>
         <dishprice> 30 </dishprice>
-        <quantity> 2 </quantity>
+        <quantity>7</quantity>
       </dish>
       <dish>
         <dish_id>noodles_003</dish_id>
