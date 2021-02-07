@@ -19,7 +19,7 @@ if (isset($_SESSION["customer_id"])) {
             <link rel="stylesheet" href="css/bootstrap-grid.css" type="text/css">
             <link rel="stylesheet" href="css/bootstrap-grid.min.css" type="text/css">
             <link rel="stylesheet" href="css/anim.css" type="text/css">
-            <link rel="stylesheet" href="css/loader-index.css" type="text/css">
+            <link rel="stylesheet" href="css/loader.css" type="text/css">
             <link rel="stylesheet" href="css/splash.css" type="text/css">
             <link rel="icon" href="images/logo.png" type="image/gif">
             <script src='https://www.google.com/recaptcha/api.js?onload=recaptchaOnload&render=explicit' async defer></script> 
@@ -64,11 +64,14 @@ if (isset($_SESSION["customer_id"])) {
                                                 if (_captchaTries > 9)
                                                 return;
                                                 if ($('.g-recaptcha').length > 0) {
-                                        grecaptcha.render("recaptcha", {sitekey: '6LcmWcoUAAAAAI6AHCSSZCQFbovJ8opgL1AYPYG-', callback: function () {
-                                        console.log('recaptcha callback');
-                                        }});
+                                                    grecaptcha.render("recaptcha", {
+                                                        sitekey: '6LcmWcoUAAAAAI6AHCSSZCQFbovJ8opgL1AYPYG-', 
+                                                        callback: function () {
+                                                        console.log('recaptcha callback');
+                                                        }
+                                                    });
                                                 return;
-                                        }
+                                                }
                                         window.setTimeout(recaptchaOnload, 1000);
                                         }
                                         $.ajax({url: "ajaxCheckSession.php", success: function(result){if (result == 1){window.location.replace('main.php'); }});

@@ -146,7 +146,7 @@
         <quantity> 1</quantity>
       </dish>
       <dish>
-        <dish_id>dish_00001</dish_id>
+        <dish_id>dish_00011</dish_id>
         <dishprice> 130 </dishprice>
         <quantity> 2 </quantity>
       </dish>
@@ -163,7 +163,7 @@
     <delivery_address>no:16,vemba st,west saidapet,ch-15</delivery_address>
     <dishes>
       <dish>
-        <dish_id>dish_00001</dish_id>
+        <dish_id>dish_00016</dish_id>
         <dishprice> 40 </dishprice>
         <quantity> 2 </quantity>
       </dish>
@@ -207,12 +207,12 @@
     <delivery_address>no:66,kovil st,villivakkam,ch-75</delivery_address>
     <dishes>
       <dish>
-        <dish_id>dish_00001</dish_id>
+        <dish_id>dish_00021</dish_id>
         <dishprice> 30 </dishprice>
         <quantity> 5 </quantity>
       </dish>
       <dish>
-        <dish_id>dish_00001</dish_id>
+        <dish_id>dish_00022</dish_id>
         <dishprice> 40</dishprice>
         <quantity> 1 </quantity>
       </dish>
@@ -234,7 +234,7 @@
         <quantity> 2 </quantity>
       </dish>
       <dish>
-        <dish_id>dish_00001</dish_id>
+        <dish_id>dish_00023</dish_id>
         <dishprice> 240 </dishprice>
         <quantity> 3 </quantity>
       </dish>
@@ -278,17 +278,17 @@
     <delivery_address>No.10,Opp Prasad Studio, Vadapalani, Chennai - 600093</delivery_address>
     <dishes>
       <dish>
-        <dish_id>dish_00001</dish_id>
+        <dish_id>dish_00035</dish_id>
         <dishprice> 240</dishprice>
         <quantity> 1 </quantity>
       </dish>
       <dish>
-        <dish_id>dish_00001</dish_id>
+        <dish_id>dish_00044</dish_id>
         <dishprice> 40</dishprice>
         <quantity> 6 </quantity>
       </dish>
       <dish>
-        <dish_id>dish_00001</dish_id>
+        <dish_id>dish_00050</dish_id>
         <dishprice> 130</dishprice>
         <quantity> 2 </quantity>
       </dish>
