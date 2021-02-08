@@ -11,9 +11,6 @@ if(!$conn)
 {
     die('connection failed'.mysqlerror());
 
-}else{
-    
-    mysqli_close($conn);
 }
 
 

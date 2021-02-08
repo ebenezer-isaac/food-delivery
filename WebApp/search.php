@@ -1,4 +1,4 @@
-Enter the Dish Name that you want to search for : <input type="text" onkeyup="javascript:getSearch()" id="search_text">
+Enter the Dish Name that you want to search for : <input type="text" onkeyup="javascript:getSearch1()" id="search_text">
 
 
 Cuisine : <select id="mySelect1" onchange="getSearch()" style="padding:3px 5px;">
@@ -11,8 +11,8 @@ Cuisine : <select id="mySelect1" onchange="getSearch()" style="padding:3px 5px;"
 
 Type : <select id="mySelect2"  onchange="getSearch()" style="padding:3px 5px;">
   <option value="">select..
-  <option value="Veg">Veg
-  <option value="Non-Veg">Non-Veg
+  <option value="V">Veg
+  <option value="N">Non-Veg
 </select>
 
 Taste : <select id="mySelect3" onchange="getSearch()" style="padding:3px 5px;">
@@ -31,12 +31,20 @@ Taste : <select id="mySelect3" onchange="getSearch()" style="padding:3px 5px;">
 <script>
 function getSearch()
 {
-  var search_text = document.getElementById("search_text").value;
+  
 	var x = document.getElementById("mySelect1").value;
   var y = document.getElementById("mySelect2").value;
   var z = document.getElementById("mySelect3").value;
 
-  $.get("com_search.php?search1="+x+"&search2="+y+"&search3="+z+"&search_text="+search_text, function(data, status){
+  $.get("com_search.php?search1="+x+"&search2="+y+"&search3="+z, function(data, status){
+    		document.getElementById("result").innerHTML = "<div class='row'>"+data+"</div>";
+		  });
+}
+function getSearch1()
+{
+  var search_text = document.getElementById("search_text").value;
+
+  $.get("dish_search.php?search_text="+search_text, function(data, status){
     		document.getElementById("result").innerHTML = "<div class='row'>"+data+"</div>";
 		  });
 }
