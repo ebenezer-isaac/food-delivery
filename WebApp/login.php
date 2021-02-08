@@ -11,15 +11,24 @@ if ($temp == "'''='") {
     exit("2");
 } else {
     $hashed = hash('sha256', $pass);
-    $xml = simplexml_load_file("./database/login.xml");
-	foreach ($xml->customer as $customer) {
-		if($email == (string)$customer->email_id && $hashed == (string)$customer->password ){
-			session_start();
-        	$_SESSION["customer_id"]=(string)$customer->customer_id;
-        	exit("1");	
-            echo (string)$customer->customer_id;
-		}	    
-	}
-    exit("0");
+    $servername = "sql290.main-hosting.eu";
+    $username = "u117204720_food_club";
+    $password = "5\$pANyPa^APH";
+    $dbname = "u117204720_food_club";
+    $conn = new mysqli($servername, $username, $password, $dbname);
+    if ($conn->connect_error) {
+        die("Connection failed: " . $conn->connect_error);
+    }
+    $sql = "SELECT email, password FROM login where email = '$email' and password = '$hashed'";
+    $result = $conn->query($sql);
+    if ($result->num_rows > 0) {
+        session_start();
+        $_SESSION["customer_id"]=$email;
+        echo "1";
+    }else{
+        exit("0");
+    }
+    
+    $conn->close();   
 }
 

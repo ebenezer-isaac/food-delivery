@@ -77,7 +77,24 @@ if (isset($_SESSION["customer_id"])) {
                                                                 xhr.open('POST', 'tokensignin.php');
                                                                 xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
                                                                 xhr.onload = function() {
-                                                                  console.log('Signed in as: ' + xhr.responseText);
+                                                                  if(xhr.responseText){
+                                                                    if (xhr.responseText == 1){
+                                                                            window.location.replace("main.php?url=home.php");
+                                                                    } else{
+                                                                        $('.alert').fadeOut(500);
+                                                                        document.getElementById("mess").innerHTML = "Google Sigin Failed";
+                                                                        $('.pass-tf').addClass('wrong-entry');
+                                                                        $('.mail-tf').addClass('wrong-entry');
+                                                                        $('.alert').fadeIn(500);
+                                                                        setTimeout("$('.alert').fadeOut(1500);", 3000);
+                                                                        $('.pass-tf').keypress(function () {
+                                                                            $('.pass-tf').removeClass('wrong-entry');
+                                                                        });
+                                                                        $('.mail-tf').keypress(function () {
+                                                                            $('.mail-tf').removeClass('wrong-entry');
+                                                                        });
+                                                                    }
+                                                                  }
                                                                 };
                                                                 xhr.send('idtoken=' + id_token+"&name="+name+"&image="+image+"&email="+email);
                                                             }

@@ -1,0 +1,15 @@
+select restaurant_dishes.dish_id, restaurant_dishes.price, restaurant_dishes.name , sum(ordered_dishes.quantity) as freq from restaurant_dishes inner join ordered_dishes on ordered_dishes.dish_id= restaurant_dishes.dish_id group by restaurant_dishes.dish_id order by freq desc
+
+homepage, 
+ popular dishes
+ popular restaurants
+ popular cuisines
+ popular taste
+
+ dish of the day
+ restaurant of the day
+
+ dish of the month
+ restaurant of the month
+
+
