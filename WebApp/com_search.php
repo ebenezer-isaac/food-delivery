@@ -1,4 +1,8 @@
 <?php
+     
+     require_once('config.php');
+     ?>
+<?php
 //error_reporting (E_ALL ^ E_NOTICE);
 
 $search_text1 =$_GET['search1'];
@@ -6,7 +10,7 @@ $search_text2 =$_GET['search2'];
 $search_text3 =$_GET['search3'];
 $search_text =$_GET['search_text'];
 echo $search_text1 . " ".$search_text2 . " ".$search_text3 . " ".$search_text;
-/*
+
 if(strlen($search_text1) && strlen($search_text2) && strlen($search_text3) >0){
     $xml = simplexml_load_file("./database/restaurants.xml");
 	foreach ($xml->restaurant as $restaurant) {
@@ -176,4 +180,4 @@ if(strlen($search_text1) && strlen($search_text2) && strlen($search_text3) >0){
                         }
                         }
                     
-                    */
+                
