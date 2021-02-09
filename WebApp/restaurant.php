@@ -1,26 +1,41 @@
 <?php
-if(isset($_GET['dishid'])){
-	$id = $_GET['id'];
-	if(isset($_GET['dishid'])){
-		$dish_id = $_GET['dishid'];	
+if(isset($_GET['res_id'])){
+	$res_id = $_GET['res_id'];
+	$servername = "sql290.main-hosting.eu";
+	$username = "u117204720_food_club";
+	$password = "5\$pANyPa^APH";
+	$dbname = "u117204720_food_club";
+	$conn = new mysqli($servername, $username, $password, $dbname);
+	if ($conn->connect_error) {
+		die("Connection failed: " . $conn->connect_error);
 	}
-	if(strlen((string)$id)==5){
-		$xml = simplexml_load_file("./database/restaurants.xml");
-		foreach ($xml->restaurant as $restaurant) {
-			if (strpos(trim(strtolower((string)$restaurant->id)), trim(strtolower($id))) !== false){
-				echo (string)$restaurant->name." (".(string)$restaurant->rating.")<br>".(string)$restaurant->address."<br><br><div class='row'>";
-				foreach ($restaurant->dishes->dish as $dish) {?>
+	$sql="SELECT * FROM restaurants WHERE restaurant_id=$res_id";
+	$result1 = $conn->query($sql);
+	if($result1){
+		while($res = $result1->fetch_assoc()){
+			$res_name = $res["name"];
+			$res_rating = $res["rating"];
+			$res_address = $res["address"];
+		
+			$sql="SELECT * FROM restaurant_dishes WHERE restaurant_dishes.restaurant_id=$res_id";
+			$result2 = $conn->query($sql);
+			if($result2){
+				echo "$res_name ($res_rating)<br>$res_address<br><br><div class='row'>";
+				while($dish = $result2->fetch_assoc()){?>
 					<div class='col-xl-4 col-sm-6 mb-3' align='center'>
 						<?php 
-							if((string)$dish->dish_cat=="Veg"){
+							$dish_cat = "Veg";
+							if($dish["category"]=="V"){
 								echo "<div class='card text-white bg-success o-hidden h-100'>";
 							}else{
+								$dish_cat = "Non Veg";
 								echo "<div class='card text-white bg-danger o-hidden h-100'>";
 							}
 						?>
 							<a class='card-header text-white clearfix'>
 								<span class='float-middle'>
-									<?php echo (string)$dish->dish_name." (".(string)$dish->dish_cat.")"; ?>
+									<?php 
+										echo $dish["name"]." (".(string)$dish_cat.")"; ?>
 									<br>
 									
 								</span>
@@ -29,7 +44,7 @@ if(isset($_GET['dishid'])){
 								<div class='card-body-icon'>
 									<?php 
 										#echo "<script>alert(".(string)$restaurant->dish_cat.");</script>";
-										if((string)$dish->dish_cat=="Veg"){
+										if((string)$dish_cat=="Veg"){
 											echo "<i class='fas fa-seedling'></i>";
 										}else{
 											echo "<i class='fas fa-bone'></i>";
@@ -41,20 +56,19 @@ if(isset($_GET['dishid'])){
 								</div>
 							</div>
 							<a class='card-footer text-white clearfix small z-1' 
-							href="javascript:setContent('/restaurant?id="+ <?php echo (string)$restaurant->id; ?> + 
-														"&dishid=" + <?php echo (string)$restaurant->id; ?> + "' );" >
+							href="javascript:setContent('/restaurant?id=1');" >
 								<span class='float-right'>
-									<?php echo "Rs.".(string)$dish->price; ?><i class='fas fa-angle-right'></i>
+									<?php echo "Rs.".(string)$dish["price"]; ?><i class='fas fa-angle-right'></i>
 								</span>
 							</a>
 						</div>
-					</div>
-					<?php
+					</div><?php
 				}
+				echo "</div>";	
 			}
 		}
-		echo "</div>";	
 	}
+	$conn->close();
 }else{
 	echo "<script>setContent('restaurants.php');</script>";
 }

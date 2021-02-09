@@ -1,15 +1,75 @@
-select restaurant_dishes.dish_id, restaurant_dishes.price, restaurant_dishes.name , sum(ordered_dishes.quantity) as freq from restaurant_dishes inner join ordered_dishes on ordered_dishes.dish_id= restaurant_dishes.dish_id group by restaurant_dishes.dish_id order by freq desc
+popular dishes
+SELECT
+    restaurant_dishes.dish_id,
+    restaurant_dishes.price,
+    restaurant_dishes.name,
+    SUM(ordered_dishes.quantity) AS freq
+FROM
+    restaurant_dishes
+INNER JOIN ordered_dishes ON ordered_dishes.dish_id = restaurant_dishes.dish_id
+GROUP BY
+    restaurant_dishes.dish_id
+ORDER BY
+    freq desc
 
-homepage, 
- popular dishes
- popular restaurants
- popular cuisines
- popular taste
 
- dish of the day
- restaurant of the day
+popular restaurants
 
- dish of the month
- restaurant of the month
+SELECT
+    restaurants.restaurant_id,
+    restaurants.name,
+    restaurants.rating,
+    count(orders.restaurant_id) AS freq
+FROM
+    restaurants
+INNER JOIN orders ON orders.restaurant_id = restaurants.restaurant_id
+GROUP BY
+    restaurants.restaurant_id
+ORDER BY
+    freq
+DESC
+
+
+popular cuisines
+
+SELECT
+    restaurant_dishes.cuisine,
+    COUNT( restaurant_dishes.cuisine ) AS freq
+FROM
+    restaurant_dishes
+INNER JOIN ordered_dishes ON ordered_dishes.dish_id = restaurant_dishes.dish_id
+GROUP BY
+     restaurant_dishes.cuisine
+ORDER BY
+    freq DESC
+    
+
+popular taste
+
+SELECT
+    restaurant_dishes.taste,
+    COUNT( restaurant_dishes.taste ) AS freq
+FROM
+    restaurant_dishes
+INNER JOIN ordered_dishes ON ordered_dishes.dish_id = restaurant_dishes.dish_id
+GROUP BY
+    restaurant_dishes.taste 
+ORDER BY 
+    freq  DESC
+
+
+
+
+
+dish of the day
+
+
+restaurant of the day
+
+
+dish of the month
+
+
+restaurant of the month
 
 

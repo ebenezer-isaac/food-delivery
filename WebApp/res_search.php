@@ -1,4 +1,28 @@
 <?php
+$mysqli = mysqli_connect("sql290.main-hosting.eu","u117204720_food_club","5\$pANyPa^APH","u117204720_food_club");
+
+// Check connection
+if (mysqli_connect_errno()) 
+{
+  echo "Failed to connect to MySQL: " . mysqli_connect_error();
+  exit();
+}
+else{
+echo " connected to MySQL ";
+}
+foreach($mysqli->query('SELECT *FROM restaurants WHERE name LIKE "t%"') as $row) {
+echo "<tr>";
+echo "<td>" . $row['restaurant_id'] . "</td>";
+echo "<td>" . $row['name'] . "</td>"; 
+echo "<td>" . $row['rating'] . "</td>";
+echo "<td>" . $row['address'] . "</td>";
+echo "</tr>"; 
+}
+?>
+
+
+
+<?php
 $search_text = $_GET['search'];
 if(strlen($search_text)>0){
 	$xml = simplexml_load_file("./database/restaurants.xml");

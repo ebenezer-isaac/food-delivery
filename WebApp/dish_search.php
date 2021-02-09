@@ -9,7 +9,7 @@ $search_text = $_GET['search_text'];
 
 if(strlen($search_text)>0){
 
-	$query="select * from restaurant_dishes  where name='$search_text'";
+	$query="select * from restaurant_dishes  where name like'%$search_text%'";
 $result=mysqli_query($conn,$query) or trigger_error(mysqli_error($conn));
 
 if($row=mysqli_fetch_assoc($result))

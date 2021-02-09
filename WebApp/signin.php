@@ -60,50 +60,30 @@ if (isset($_SESSION["customer_id"])) {
                                                     <input type="password" class="form-control active" id="pass" placeholder="Password" title='Enter the password associated with your e-mail address' required> 
                                                     <div id='eye' class='pass-tf' onclick="showPass()"><i class="fa fa-eye-slash" ></i></div>
                                                 </div>
-                                                
                                                 <span id='mess' class="alert">Invalid Password</span><br>
                                                 <div class="row">
                                                     <div class="col-3"></div>
                                                     <div class="col-7">
                                                         <div class="g-signin2" data-onsuccess="onSignIn"></div>
-                                                        <script>
-                                                            function onSignIn(googleUser) {
-                                                                var id_token = googleUser.getAuthResponse().id_token;
-                                                                var profile = googleUser.getBasicProfile();
-                                                                var name = profile.getName();
-                                                                var image = profile.getImageUrl();
-                                                                var email = profile.getEmail();
-                                                                var xhr = new XMLHttpRequest();
-                                                                xhr.open('POST', 'tokensignin.php');
-                                                                xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
-                                                                xhr.onload = function() {
-                                                                  if(xhr.responseText){
-                                                                    if (xhr.responseText == 1){
-                                                                            window.location.replace("main.php?url=home.php");
-                                                                    } else{
-                                                                        $('.alert').fadeOut(500);
-                                                                        document.getElementById("mess").innerHTML = "Google Sigin Failed";
-                                                                        $('.pass-tf').addClass('wrong-entry');
-                                                                        $('.mail-tf').addClass('wrong-entry');
-                                                                        $('.alert').fadeIn(500);
-                                                                        setTimeout("$('.alert').fadeOut(1500);", 3000);
-                                                                        $('.pass-tf').keypress(function () {
-                                                                            $('.pass-tf').removeClass('wrong-entry');
-                                                                        });
-                                                                        $('.mail-tf').keypress(function () {
-                                                                            $('.mail-tf').removeClass('wrong-entry');
-                                                                        });
-                                                                    }
-                                                                  }
-                                                                };
-                                                                xhr.send('idtoken=' + id_token+"&name="+name+"&image="+image+"&email="+email);
-                                                            }
-                                                        </script>
                                                     </div>
                                                     <div class="col-2"></div>
                                                 </div>
                                                 <button type="button" class="log-btn" id='loginbtn'>Login</button> 
-                                            </form>        
+                                                <p class="message"> 
+                                                    Forgot your password? 
+                                                    <a href="#" onclick="return transfer_data()"><b> Create a new password </b> </a> 
+                                                </p>
+                                            </form>
+                                            <form method="post" class="recaptcha_form" style="display: none;">
+                                                <div class="form-group"> <input type="email" placeholder="Email" class="form-control" name="emailid" id="emailid" required> <i class="fa fa-user"></i> </div>
+                                                <div class="form-group custom_group">
+                                                    <div id="recaptcha" class="g-recaptcha" data-sitekey="6LcmWcoUAAAAAI6AHCSSZCQFbovJ8opgL1AYPYG-"></div>
+                                                </div>
+                                                <p class="link"> <a href="resetpassword.html"> <b> I already have an OTP </b> </a> </p>
+                                                <button type="submit"> Send OTP </button> 
+                                                <p class="message"> Want to sign in? <a href="#"> <b> Sign in </b> </a> </p>
+                                            </form> 
+
                                         </div>
                                     </div>
                                 </div>
@@ -128,6 +108,43 @@ if (isset($_SESSION["customer_id"])) {
                     </div>
                 </div>
             </div>
+            <script>
+                function transfer_data(){
+                    var x = document.getElementById("username").value;
+                    document.getElementById("user").value = x;
+                }
+                function onSignIn(googleUser) {
+                    var id_token = googleUser.getAuthResponse().id_token;
+                    var profile = googleUser.getBasicProfile();
+                    var name = profile.getName();
+                    var image = profile.getImageUrl();
+                    var email = profile.getEmail();
+                    var xhr = new XMLHttpRequest();
+                    xhr.open('POST', 'tokensignin.php');
+                    xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+                    xhr.onload = function() {
+                      if(xhr.responseText){
+                        if (xhr.responseText == 1){
+                                window.location.replace("main.php?url=home.php");
+                        } else{
+                            $('.alert').fadeOut(500);
+                            document.getElementById("mess").innerHTML = "Google Sigin Failed";
+                            $('.pass-tf').addClass('wrong-entry');
+                            $('.mail-tf').addClass('wrong-entry');
+                            $('.alert').fadeIn(500);
+                            setTimeout("$('.alert').fadeOut(1500);", 3000);
+                            $('.pass-tf').keypress(function () {
+                                $('.pass-tf').removeClass('wrong-entry');
+                            });
+                            $('.mail-tf').keypress(function () {
+                                $('.mail-tf').removeClass('wrong-entry');
+                            });
+                        }
+                      }
+                    };
+                    xhr.send('idtoken=' + id_token+"&name="+name+"&image="+image+"&email="+email);
+                }
+            </script> 
             <script src="js/particles.js"></script> 
             <script src="js/index.js"></script> 
             <script src="js/scriptShake.js"></script>
