@@ -11,9 +11,6 @@
   <meta content="" name="keywords">
 
  
-
-  
-
   <!-- Vendor CSS Files -->
   <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
   <link href="vendor/icofont/icofont.min.css" rel="stylesheet">
@@ -78,50 +75,167 @@
     </div>
     </div>
   </section>
-    <!-- ======= Food Section ======= -->
-    <section id="Food" class="Food">
-      <a class="food" style="font-size: 30px;">Food Near You</a>
-      <div class="cards-list">
+<!------Popular dishes------->
+<section id="Food" class="Food">
+<a class="food" style="font-size: 30px;">Popular Dishes</a>
+<div class="cards-list">
+<?php 
+require_once('config.php');
+$i =1;
+$query="SELECT
+restaurant_dishes.dish_id,
+restaurant_dishes.price,
+restaurant_dishes.name,
+SUM(ordered_dishes.quantity) AS freq
+FROM
+restaurant_dishes
+INNER JOIN ordered_dishes ON ordered_dishes.dish_id = restaurant_dishes.dish_id
+GROUP BY
+restaurant_dishes.dish_id
+ORDER BY
+freq desc";
+$result=mysqli_query($conn,$query) or trigger_error(mysqli_error($conn));
+
+if($row=mysqli_fetch_assoc($result))
+  {
+    while($row=mysqli_fetch_assoc($result) and $i<=8)
+    {
+        $dish_nam=$row['name'];
+        $dish_prc=$row['price'];
+        $i=$i+1;
+      ?>
+   
+      
         
-        <div class="card 1">
+        <div class="card ">
           
           <div class="card_image">
            <img src="images/img1.jpg" />
             </div>
           <div class="card_title title-white">
-            <p>American</p>
+            <p><?php echo"$dish_nam"; ?></p>
           </div>
         </div>
         
-          <div class="card 2">
+
+
+         
+          <?php
+    }
+  }
+
+          ?>
+           </div>
+    </section><!-- End Popular Dish Section -->
+<!------Popular Restaurant------->
+<section id="Food" class="Food">
+<a class="food" style="font-size: 30px;">Popular Restaurant</a>
+<div class="cards-list">
+<?php 
+require_once('config.php');
+$i =1;
+$query="SELECT
+restaurants.restaurant_id,
+restaurants.name,
+restaurants.rating,
+count(orders.restaurant_id) AS freq
+FROM
+restaurants
+INNER JOIN orders ON orders.restaurant_id = restaurants.restaurant_id
+GROUP BY
+restaurants.restaurant_id
+ORDER BY
+freq
+DESC";
+$result=mysqli_query($conn,$query) or trigger_error(mysqli_error($conn));
+
+if($row=mysqli_fetch_assoc($result))
+  {
+    while($row=mysqli_fetch_assoc($result) and $i<=8)
+    {
+        $res_nam=$row['name'];
+        $res_rat=$row['rating'];
+        $i=$i+1;
+      ?>
+      
+      
+        
+        <div class="card ">
+          
           <div class="card_image">
-            <img src="images/img2.jpg" />
+           <img src="images/img4.jpg" />
             </div>
           <div class="card_title title-white">
-            <p>Italian</p>
+            <p ><?php echo"$res_nam";?><br><?php echo"$res_rat"; ?></p>
+            
           </div>
         </div>
         
-        <div class="card 3">
-          <div class="card_image">
-            <img src="images/img3.jpg" />
-          </div>
+
+
+         
+          <?php
+    }
+  }
+
+          ?>
+           </div>
+    </section><!-- End Popular Restaurant Section -->
+    <!------Popular Cuisines------->
+<section id="Food" class="Food">
+<a class="food" style="font-size: 30px;">Popular Cuisines</a>
+<div class="cards-list">
+<?php 
+require_once('config.php');
+
+$query="SELECT
+restaurant_dishes.cuisine,
+COUNT( restaurant_dishes.cuisine ) AS freq
+FROM
+restaurant_dishes
+INNER JOIN ordered_dishes ON ordered_dishes.dish_id = restaurant_dishes.dish_id
+GROUP BY
+ restaurant_dishes.cuisine
+ORDER BY
+freq DESC";
+$result=mysqli_query($conn,$query) or trigger_error(mysqli_error($conn));
+
+if($row=mysqli_fetch_assoc($result))
+  {
+    while($row=mysqli_fetch_assoc($result))
+    {
+        $cus=$row['cuisine'];
+    
+        
+      ?>
+      
+      
+        
+        <div class="card ">
+          
+          <div class="card_image ">
+           <img src="images/img2.jpg" />
+            </div>
           <div class="card_title title-white">
-            <p>Indian</p>
+            <p ><?php echo"$cus";?></p>
+            
           </div>
-          </div>
+        </div>
+        
 
-          <div class="card 3">
-            <div class="card_image">
-              <img src="images/img4.jpg" />
-            </div>
-            <div class="card_title title-white">
-              <p>Chinese</p>
-            </div>
-            </div>
 
+          
+          <?php
+    }
+  }
+
+          ?>
           </div>
-    </section><!-- End Food Section -->
+    </section><!-- End Popular Cuisines Section -->
+
+
+
+    
 
     
      
