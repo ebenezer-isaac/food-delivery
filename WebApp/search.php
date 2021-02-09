@@ -1,50 +1,37 @@
-Enter the Dish Name that you want to search for : <input type="text" onkeyup="javascript:getSearch1()" id="search_text">
-
-
-Cuisine : <select id="mySelect1" onchange="getSearch()" style="padding:3px 5px;">
-  <option value="">select..
-  <option value="Italian">Italian
-  <option value="Indian">Indian
-  <option value="American">American
-  <option value="Chinese">Chinese
+Enter the Dish Name that you want to search for : <input type="text" onkeyup="javascript:getSearch()" id="search_text">
+<br><br>
+Cuisine : <select id="cuisine" onchange="getSearch()" style="padding:3px 5px;">
+  <option value="">Select</option>
+  <option value="Italian">Italian</option>
+  <option value="Indian">Indian</option>
+  <option value="American">American</option>
+  <option value="Chinese">Chinese</option>
+  <option value="Chinese">Korean</option>
 </select>
 
-Type : <select id="mySelect2"  onchange="getSearch()" style="padding:3px 5px;">
-  <option value="">select..
-  <option value="V">Veg
-  <option value="N">Non-Veg
+Type : <select id="cat"  onchange="getSearch()" style="padding:3px 5px;">
+  <option value="">Select</option>
+  <option value="V">Veg</option>
+  <option value="N">Non-Veg</option>
 </select>
 
-Taste : <select id="mySelect3" onchange="getSearch()" style="padding:3px 5px;">
-  <option value="">select..
-  <option value="Sour">Sour
-  <option value="Salty">Salty
-  <option value="Spicy">Spicy
-  <option value="Sweet">Sweet
+Taste : <select id="taste" onchange="getSearch()" style="padding:3px 5px;">
+  <option value="">Select</option>
+  <option value="Sour">Sour</option>
+  <option value="Salty">Salty</option>
+  <option value="Spicy">Spicy</option>
+  <option value="Sweet">Sweet</option>
 </select>
-
-
-
 <br>
 <br>
 <div id='result'></div>
 <script>
-function getSearch()
-{
-  
-	var x = document.getElementById("mySelect1").value;
-  var y = document.getElementById("mySelect2").value;
-  var z = document.getElementById("mySelect3").value;
-
-  $.get("com_search.php?search1="+x+"&search2="+y+"&search3="+z, function(data, status){
-    		document.getElementById("result").innerHTML = "<div class='row'>"+data+"</div>";
-		  });
-}
-function getSearch1()
-{
+function getSearch(){
+	var cuisine = document.getElementById("cuisine").value;
+  var cat = document.getElementById("cat").value;
+  var taste = document.getElementById("taste").value;
   var search_text = document.getElementById("search_text").value;
-
-  $.get("dish_search.php?search_text="+search_text, function(data, status){
+  $.get("dish_search.php?cuisine="+cuisine+"&cat="+cat+"&taste="+taste+"&search_text="+search_text, function(data, status){
     		document.getElementById("result").innerHTML = "<div class='row'>"+data+"</div>";
 		  });
 }

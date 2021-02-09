@@ -1,6 +1,6 @@
 
 function setContent() {
-    url = "login.html"
+    url = "signin.php"
     if (window.XMLHttpRequest) {
         request = new XMLHttpRequest();
     } else if (window.ActiveXObject) {

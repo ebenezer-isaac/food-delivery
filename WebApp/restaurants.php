@@ -14,38 +14,36 @@ Filter Restaurants by Name : <input type="text" onkeyup="javascript:getSearch()"
 
 	$sql = "SELECT * FROM restaurants";
 	$result = $conn->query($sql);
-
-	if ($result->num_ress > 0) {
-	  // output data of each res
-	  while($res = $result->fetch_assoc()) {
-	    echo "id: " . . " - Name: " . . "rating: " . . "address: " . .  "<br>";?>
-		<div class='col-xl-12 col-sm-12 mb-3' align='center'>
-			<div class='card text-white bg-primary o-hidden h-100'>
-				<a class='card-header text-white clearfix'>
-					<span class='float-middle'>
-						<?php echo $res["name"]; ?>
-					</span>
-				</a>
-				<div class='card-body'>
-					<div class='card-body-icon'>
-		            	<i class="fas fa-utensils"></i>
+	if ($result) {
+	  while($res = $result->fetch_assoc()) {?>
+	  	<a href="javascript:setContent('restaurant.php?res_id=<?php echo $res["restaurant_id"]; ?>' );">
+			<div class='col-xl-12 col-sm-12 mb-3' align='center'>
+				<div class='card text-white bg-primary o-hidden h-100'>
+					<div class='card-header text-white clearfix'>
+						<span class='float-middle'>
+							<?php echo $res["name"]; ?>
+						</span>
 					</div>
-					<div class='mr-2' align='center'>
-						<?php echo $res["address"];?>
+					<div class='card-body'>
+						<div class='card-body-icon'>
+			            	<i class="fas fa-utensils"></i>
+						</div>
+						<div class='mr-2' align='center'>
+							<?php echo $res["address"];?>
+						</div>
+					</div>
+					<div class='card-footer text-white clearfix small z-1'>
+						<span class='float-left'>
+							<?php echo "Rating : ".$res["rating"]; ?>
+						<!-- 	<?php echo (string)$restaurant->address; ?> -->
+						</span>
+						<span class='float-right'>
+							<i class='fas fa-angle-right'></i>
+						</span>
 					</div>
 				</div>
-				<a class='card-footer text-white clearfix small z-1' 
-				href="javascript:setContent('/restaurant?id=<?php echo $res["id"]; ?>' );" >
-					<span class='float-left'>
-						<?php echo "Rating : ".$res["rating"]; ?>
-					<!-- 	<?php echo (string)$restaurant->address; ?> -->
-					</span>
-					<span class='float-right'>
-						<i class='fas fa-angle-right'></i>
-					</span>
-				</a>
 			</div>
-		</div><?php
+		</a><?php
 	  }
 	} else {
 	  echo "0 results";

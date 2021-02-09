@@ -101,58 +101,6 @@
     return false;
   });
 
-  // Gallery carousel (uses the Owl Carousel library)
-  $(".gallery-carousel").owlCarousel({
-    autoplay: true,
-    dots: true,
-    loop: true,
-    center: true,
-    margin: 25,
-    responsive: {
-      0: {
-        items: 1
-      },
-      768: {
-        items: 3
-      },
-      992: {
-        items: 4
-      },
-      1200: {
-        items: 5
-      }
-    }
-  });
-
-  // Initiate venobox lightbox
-  $(document).ready(function() {
-    $('.venobox').venobox();
-  });
-
-  // Testimonials carousel (uses the Owl Carousel library)
-  $(".testimonials-carousel").owlCarousel({
-    autoplay: true,
-    dots: true,
-    loop: true,
-    responsive: {
-      0: {
-        items: 1
-      },
-      768: {
-        items: 1
-      },
-      900: {
-        items: 2
-      }
-    }
-  });
-
-  // Initi AOS
-  AOS.init({
-    duration: 800,
-    easing: "ease-in-out"
-  });
-
 })(jQuery);
 
 $('.message a').click(function ()
@@ -162,8 +110,8 @@ $('.message a').click(function ()
 
 function transfer_data()
 {
-    var x = document.getElementById("username").value;
-    document.getElementById("user").value = x;
+    var x = document.getElementById("email").value;
+    document.getElementById("emailid").value = x;
 }
 
 $(".recaptcha_form").submit(function (event) {

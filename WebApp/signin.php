@@ -24,7 +24,7 @@ if (isset($_SESSION["customer_id"])) {
             <link rel="stylesheet" href="css/loader.css" type="text/css">
             <link rel="stylesheet" href="css/splash.css" type="text/css">
             <link rel="icon" href="images/logo.png" type="image/gif">
-            <script src="js/jquery.min.js"></script>
+            <script src="vendor/jquery/jquery.min.js"></script>
             <script src='https://www.google.com/recaptcha/api.js?onload=recaptchaOnload&render=explicit' async defer></script> 
         </head>
         <body class='unselectable'>
@@ -145,10 +145,11 @@ if (isset($_SESSION["customer_id"])) {
                     xhr.send('idtoken=' + id_token+"&name="+name+"&image="+image+"&email="+email);
                 }
             </script> 
+            <script src="vendor/jquery/jquery.min.js"></script>
             <script src="js/particles.js"></script> 
             <script src="js/index.js"></script> 
             <script src="js/scriptShake.js"></script>
-            <script src="js/main.js"></script>
+            <script defer src="js/main.js"></script>
             <script src="js/app.js"></script>
             <script>
                 var _captchaTries = 0;
@@ -167,7 +168,11 @@ if (isset($_SESSION["customer_id"])) {
                         }
                 window.setTimeout(recaptchaOnload, 1000);
                 }
-                $.ajax({url: "ajaxCheckSession.php", success: function(result){if (result == 1){window.location.replace('main.php'); }});
+                $.ajax({url: "ajaxCheckSession.php", success: function(result){
+                    if (result == 1){
+                        window.location.replace('main.php'); 
+                    }
+                }});
             </script> 
         </body>
     </html>
