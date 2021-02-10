@@ -18,5 +18,5 @@ if (isset($_SESSION["customer_id"])) {
     }
     include "end.php";
 } else {
-    echo "window.location.replace('index.php');";
+    echo "<script>window.location.replace('index.php');</script>";
 }

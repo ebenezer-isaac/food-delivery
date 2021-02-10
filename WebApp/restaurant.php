@@ -1,6 +1,45 @@
 <?php
 if(isset($_GET['res_id'])){
 	$res_id = $_GET['res_id'];
+	if(!isset($_COOKIE["res_id"])) {
+		header("Set-Cookie: res_id=$res_id");
+	}
+	if(isset($_COOKIE["cart_obj"])) {?>
+		<script>
+			var cart_obj = {};
+			var res_id="";
+			if (this.document.cookie.length != 0) {
+            var cart_array = document.cookie.split(";");
+	        for(var i = 0; i <cart_array.length; i++) {
+	            if(cart_array[i].trim().startsWith("cart_obj",0)){
+	                cart_array[i] = cart_array[i].replace("cart_obj=","");
+	                cart_array[i] = cart_array[i].replaceAll("'","\"");
+	                cart_obj = JSON.parse(cart_array[i]);
+	            }else if(cart_array[i].trim().startsWith("res_id",0)){
+                cart_array[i] = cart_array[i].replace("res_id=","");
+                res_id = parseInt(cart_array[i]);
+            	}
+	        }
+	        
+        }</script><?php
+	}else{
+		header("Set-Cookie: cart_obj={};");
+	}
+	?>
+	<style>
+		input[type=number]::-webkit-inner-spin-button, 
+		input[type=number]::-webkit-outer-spin-button { 
+	    	opacity: 1;
+		}
+	</style>
+	<script>
+		function add_to_cart(quantity, dish_id){
+			cart_obj[""+String(dish_id)]=quantity;
+	        var jsonString = JSON.stringify(cart_obj);
+	        document.cookie = "cart_obj=" + jsonString + ";expires=Wed, 12 May 2021 01:00:00 UTC;";
+	    }
+	</script>
+	<?php
 	$servername = "sql290.main-hosting.eu";
 	$username = "u117204720_food_club";
 	$password = "5\$pANyPa^APH";
@@ -43,7 +82,6 @@ if(isset($_GET['res_id'])){
 							<div class='card-body'>
 								<div class='card-body-icon'>
 									<?php 
-										#echo "<script>alert(".(string)$restaurant->dish_cat.");</script>";
 										if((string)$dish_cat=="Veg"){
 											echo "<i class='fas fa-seedling'></i>";
 										}else{
@@ -55,20 +93,29 @@ if(isset($_GET['res_id'])){
 									<?php echo "<img src='images/dishes/".(string)$dish->dish_pic."'>";?>
 								</div>
 							</div>
-							<a class='card-footer text-white clearfix small z-1' 
-							href="javascript:setContent('/restaurant?id=1');" >
+							<div class='card-footer text-white clearfix small z-1'>
+								<span class='float-left'>
+									Quantity : <input type="number" name="dish_<?php echo $dish["dish_id"]; ?>" id="dish_<?php echo $dish["dish_id"]; ?>" min=0 max=10 step =1 style="width:40px" value=0 onchange="javascript:add_to_cart(this.value, <?php echo $dish["dish_id"]; ?>)">
+								</span>
 								<span class='float-right'>
 									<?php echo "Rs.".(string)$dish["price"]; ?><i class='fas fa-angle-right'></i>
 								</span>
-							</a>
+							</div>
 						</div>
 					</div><?php
 				}
-				echo "</div>";	
+				echo "</div>";
 			}
 		}
 	}
 	$conn->close();
+	?>
+	<script>
+		for(var dish in cart_obj){
+			document.getElementById("dish_"+dish).value=cart_obj[""+dish];
+		}	
+	</script>
+	<?php	
 }else{
 	echo "<script>setContent('restaurants.php');</script>";
 }

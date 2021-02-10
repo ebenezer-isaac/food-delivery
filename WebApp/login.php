@@ -28,7 +28,6 @@ if ($temp == "'''='") {
     }else{
         exit("0");
     }
-    
     $conn->close();   
 }
 
