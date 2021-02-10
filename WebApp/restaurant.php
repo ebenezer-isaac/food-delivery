@@ -2,10 +2,11 @@
 if(isset($_GET['res_id'])){
 	$res_id = $_GET['res_id'];
 	if(!isset($_COOKIE["res_id"])){
+		echo "cookie not set";
 		header("Set-Cookie: res_id=$res_id");
 		header("Set-Cookie: cart_obj={};");
-		echo '<script>document.cookie = "cart_obj={};res_id='.$res_id.'";</script>';
-		//echo "<script>window.location.replace('main.php?url=restaurant.php?res_id=$res_id');</script>";
+		echo '<script>document.cookie = "cart_obj={}";document.cookie = "res_id='.$res_id.'";</script>';
+		echo "<script>window.location.replace('main.php?url=restaurant.php?res_id=$res_id');</script>";
 	}else{
 		if($_COOKIE["res_id"]==$_GET['res_id']){?>
 			<script>
@@ -118,7 +119,7 @@ if(isset($_GET['res_id'])){
         }else{
 			header("Set-Cookie: res_id=$res_id");
 			header("Set-Cookie: cart_obj={};");
-			echo '<script>document.cookie = "res_id='.$res_id.'";</script>';
+			echo '<script>document.cookie = "cart_obj={}";document.cookie = "res_id='.$res_id.'";</script>';
 			echo "<script>window.location.replace('main.php?url=restaurant.php?res_id=$res_id');</script>";
         }
 	}

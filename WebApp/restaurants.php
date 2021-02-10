@@ -15,9 +15,10 @@ Filter Restaurants by Name : <input type="text" onkeyup="javascript:getSearch()"
 	$sql = "SELECT * FROM restaurants";
 	$result = $conn->query($sql);
 	if ($result) {
-	  while($res = $result->fetch_assoc()) {?>
-	  	<a href="javascript:setContent('restaurant.php?res_id=<?php echo $res["restaurant_id"]; ?>' );">
-			<div class='col-xl-12 col-sm-12 mb-3' align='center'>
+		echo "<div class='row'>";
+		while($res = $result->fetch_assoc()) {?>
+			<a class='col-xl-4 col-sm-4 mb-3' align='center' 
+			href="javascript:setContent('restaurant.php?res_id=<?php echo $res["restaurant_id"]; ?>' );">
 				<div class='card text-white bg-primary o-hidden h-100'>
 					<div class='card-header text-white clearfix'>
 						<span class='float-middle'>
@@ -27,6 +28,9 @@ Filter Restaurants by Name : <input type="text" onkeyup="javascript:getSearch()"
 					<div class='card-body'>
 						<div class='card-body-icon'>
 			            	<i class="fas fa-utensils"></i>
+						</div>
+						<div class='mr-2 fill' align='center'>
+							<?php echo "<img src='images/restaurants/res_".sprintf('%05d', $res["restaurant_id"]).".jpg'>";?>
 						</div>
 						<div class='mr-2' align='center'>
 							<?php echo $res["address"];?>
@@ -42,9 +46,9 @@ Filter Restaurants by Name : <input type="text" onkeyup="javascript:getSearch()"
 						</span>
 					</div>
 				</div>
-			</div>
-		</a><?php
-	  }
+			</a><?php
+		}
+	  echo "</div>";
 	} else {
 	  echo "0 results";
 	}
