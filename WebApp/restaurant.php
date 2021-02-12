@@ -90,7 +90,7 @@ if(isset($_GET['res_id'])){
 											?>
 										</div>
 										<div class='mr-2 fill' align='center'>
-											<?php echo "<img src='images/dishes/".(string)$dish->dish_pic."'>";?>
+											<?php echo "<img src='images/dishes/".(string)$dish["pic"]."'>";?>
 										</div>
 									</div>
 									<div class='card-footer text-white clearfix small z-1'>

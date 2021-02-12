@@ -4,7 +4,7 @@ $cuisine = $_GET['cuisine'];
 $cat = $_GET['cat'];
 $taste = $_GET['taste'];
 $search_text = $_GET['search_text'];
-$query="select restaurant_dishes.restaurant_id as res_id, restaurants.name as res_name, restaurants.rating, restaurants.address,  restaurant_dishes.dish_id, restaurant_dishes.category, restaurant_dishes.cuisine, restaurant_dishes.name, restaurant_dishes.taste, restaurant_dishes.price from restaurant_dishes inner join restaurants on restaurant_dishes.restaurant_id = restaurants.restaurant_id where restaurant_dishes.name LIKE '%$search_text%' and restaurant_dishes.category LIKE '%$cat%' and restaurant_dishes.cuisine LIKE '%$cuisine%' and restaurant_dishes.taste LIKE '%$taste%' order by price";
+$query="select restaurant_dishes.restaurant_id as res_id, restaurants.name as res_name, restaurants.rating, restaurants.address,  restaurant_dishes.dish_id, restaurant_dishes.category, restaurant_dishes.cuisine, restaurant_dishes.name, restaurant_dishes.taste, restaurant_dishes.pic, restaurant_dishes.price from restaurant_dishes inner join restaurants on restaurant_dishes.restaurant_id = restaurants.restaurant_id where restaurant_dishes.name LIKE '%$search_text%' and restaurant_dishes.category LIKE '%$cat%' and restaurant_dishes.cuisine LIKE '%$cuisine%' and restaurant_dishes.taste LIKE '%$taste%' order by price";
 $result=mysqli_query($conn,$query) or trigger_error(mysqli_error($conn));
 if($row=mysqli_fetch_assoc($result)){
     while($row=mysqli_fetch_assoc($result)){
@@ -17,6 +17,7 @@ if($row=mysqli_fetch_assoc($result)){
         $dish_cui=$row['cuisine'];
         $dish_nam=$row['name'];
         $dish_taste=$row['taste'];
+        $dish_pic=$row['pic'];
         $dish_prc=$row['price'];?>
 		<div class='col-xl-4 col-sm-6 mb-3' align='center'>
 			<?php 
@@ -45,7 +46,7 @@ if($row=mysqli_fetch_assoc($result)){
 						?>
 					</div>
 					<div class='mr-2 fill' align='center'>
-                        <img src='dishes/<?php echo $dish_pic;?>'>
+                        <img src='images/dishes/<?php echo $dish_pic;?>'>
                     </div>
                 </div>
                 <a class='card-footer text-white clearfix small z-1' 
