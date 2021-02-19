@@ -102,4 +102,6 @@ if(isset($_GET['res_id']) && isset($_GET['cart'])){
 		}
 	}
 	$conn->close();
+}else{
+	echo "Empty Cart";
 }?>

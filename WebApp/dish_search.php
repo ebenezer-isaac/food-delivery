@@ -50,7 +50,7 @@ if($row=mysqli_fetch_assoc($result)){
                     </div>
                 </div>
                 <a class='card-footer text-white clearfix small z-1' 
-                href="javascript:setContent('/restaurant?res_id=<?php echo $res_id; ?>');" >
+                href="javascript:setContent('restaurant.php?res_id=<?php echo $res_id; ?>');" >
                     <span class='float-left'><?php echo (string)$res_add; ?></span>
                     <span class='float-right'>
                         <?php echo "Rs.".(string)$dish_prc; ?><i class='fas fa-angle-right'></i>

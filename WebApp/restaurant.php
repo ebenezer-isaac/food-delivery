@@ -59,7 +59,9 @@ if(isset($_GET['res_id'])){
 					$sql="SELECT * FROM restaurant_dishes WHERE restaurant_dishes.restaurant_id=$res_id";
 					$result2 = $conn->query($sql);
 					if($result2){
-						echo "$res_name ($res_rating)<br>$res_address<br><br><div class='row'>";
+						echo "$res_name ($res_rating)<br>$res_address<br><br>
+						<img src=\"images/restaurants/res_".sprintf('%05d', $res_id).".jpg\" style='border:solid black 2px'/>
+						<br><br><br><div class='row'>";
 						while($dish = $result2->fetch_assoc()){?>
 							<div class='col-xl-4 col-sm-6 mb-3' align='center'>
 								<?php 

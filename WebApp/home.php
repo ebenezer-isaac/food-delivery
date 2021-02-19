@@ -1,139 +1,350 @@
 <?php
 date_default_timezone_set("Asia/Calcutta");
 session_start();
-if (isset($_SESSION["customer_id"])) {
-    echo "Popular Dishes";
-	function search_in_array($value, $array){
-		$index = 0;
-		foreach ($array as $dish) {
-			if((trim(strtolower((string)$dish))== trim(strtolower($value)))){
-				return $index;
-			}else{
-				$index = $index +1;
-			}
-		}
-		return -1;
-	}
+if (isset($_SESSION["customer_id"]))
+{ ?>
+    <section id="Food" class="Food">
+<a class="food" style="font-size: 30px;">Popular Dish of the Day </a>
+<div class="row">
+<?php
+    require_once ('config.php');
+    $i = 1;
+    $query = "SELECT
+restaurant_dishes.dish_id,restaurant_dishes.restaurant_id,
+restaurant_dishes.pic,
+restaurant_dishes.price,
+restaurant_dishes.name,
+SUM(ordered_dishes.quantity) AS freq
+FROM
+ordered_dishes
+INNER JOIN restaurant_dishes ON ordered_dishes.dish_id = restaurant_dishes.dish_id 
+INNER JOIN orders ON ordered_dishes.order_id = orders.order_id 
+WHERE orders.date_time<=CONCAT(CURDATE(), ' 23:59:59') /*and orders.date_time>=CONCAT(CURDATE(), ' 00:00:00' )*/
+GROUP BY
+restaurant_dishes.dish_id
+ORDER BY
+freq desc
+";
+    $result = mysqli_query($conn, $query) or trigger_error(mysqli_error($conn));
 
-	$i=0;
-	$dish_freq = array(array());
-	$xml_history = simplexml_load_file("./database/history.xml");
-	$dish_freq[0][0]="dish_00002";
-	foreach($xml_history->order as $order){
-		foreach ($order->dishes->dish as $dish) {	
-			if ($i==0){
-				$dish_freq[0][0] = (string)$dish->dish_id;
-				$dish_freq[0][1] = (string)$dish->quantity;
-				$i+=1;
-			 }else{
-			 	if(search_in_array((string)$dish->dish_id, array_column($dish_freq, 0))>=0){ 
-			 		$index = search_in_array((string)$dish->dish_id,array_column($dish_freq, 0));
-					$dish_freq[$index][1] = (int)$dish->quantity+(int)$dish_freq[$index][1];
-				}else{     
-					$dish_freq[$i][0] = (string)$dish->dish_id;
-					$dish_freq[$i][1] = (string)$dish->quantity;
-					$i+=1;
-					
-				}
-			 }
-		}
-	}
-	
-	function qsort($dish_freq){
-		for($i = 0; $i<count($dish_freq);$i++){
-			for($j = 0; $j<count($dish_freq)-1;$j++){
-				if((int)$dish_freq[$j][1]<(int)$dish_freq[$j+1][1]){
-					$temp1=$dish_freq[$j+1][0];
-					$temp2=(int)$dish_freq[$j+1][1];
-					$dish_freq[$j+1][0]=$dish_freq[$j][0];
-					$dish_freq[$j+1][1]=(int)$dish_freq[$j][1];
-					$dish_freq[$j][0]=$temp1;
-					$dish_freq[$j][1]=(int)$temp2;
-				}
-			}
-		}
-		return $dish_freq;
-	}
+    if ($result)
+    {
+        while ($row = mysqli_fetch_assoc($result) and $i <= 8)
+        {
+            $dish_nam = $row['name'];$res_id = $row['restaurant_id'];
+            $dish_prc = $row['price'];
+            $dish_pic = $row['pic'];
+            $i = $i + 1;
+?>
+   
+      
+       
+        <a class='col-xl-3 col-sm-6 mb-3' align='center' href="javascript:setContent('restaurant.php?res_id=<?php echo $res_id; ?>');" ><div class="card ">
+          
+          <div class="card_image">
+           <img src="images/dishes/<?php echo "$dish_pic"; ?>" />
+          </div>
+          <div class="card_title title-white">
+            <p><?php echo "$dish_nam"; ?></p>
+          </div>
+        </div></a>
+        
 
-	function getDishDetails($dishid){
-		$xml = simplexml_load_file("./database/restaurants.xml");
-		foreach ($xml->restaurant as $restaurant) {
-			$res_name = (string)$restaurant->name;
-			$res_rating = (string)$restaurant->rating;
-			$res_id = (string)$restaurant->id;
-			$res_address = (string)$restaurant->address;
-			foreach ($restaurant->dishes->dish as $dish) {
-				if (trim(strtolower((string)$dish->dish_id)) == trim(strtolower((string)$dishid))){
-					$dish_details = array();
-					$dish_details["res_id"] = (string)$res_id;
-					$dish_details["res_name"] = (string)$res_name;
-					$dish_details["res_rating"] = (string)$res_rating;
-					$dish_details["res_address"] = (string)$res_address;
-					$dish_details["dish_id"] = (string)$dish->dish_id;
-					$dish_details["dish_name"] = (string)$dish->dish_name;
-					$dish_details["dish_cat"] = (string)$dish->dish_cat;
-					$dish_details["dish_pic"] = (string)$dish->dish_pic;
-					$dish_details["dish_price"] = (string)$dish->price;
-					return $dish_details;
-				}
-			}
-		}
-	}
 
-	$dish_freq = qsort($dish_freq);
-	echo "<br><br><div class='row'>";
-	$dish_count = count($dish_freq);
-	$limit = 9;
-	if(count($dish_freq)<9){
-		$limit = count($dish_freq);
-	}
-	for($i = 0; $i<$limit;$i++){
-		$dish_details = getDishDetails($dish_freq[$i][0]);
-		?>
-		<div class='col-xl-3 col-sm-3 mb-3' align='center'>
-			<?php 
-				if((string)$dish_details["dish_cat"]=="Veg"){
-					echo "<div class='card text-white bg-success o-hidden h-100'>";
-				}else{
-					echo "<div class='card text-white bg-danger o-hidden h-100'>";
-				}
-			?>
-				<a class='card-header text-white clearfix'>
-					<span class='float-middle'>
-						<?php echo (string)$dish_details["dish_name"]; ?>
-						<br>
-						
-					</span>
-				</a>
-				<div class='card-body'>
-					<div class='card-body-icon'>
-						<?php 
-							if((string)$dish_details["dish_cat"]=="Veg"){
-								echo "<i class='fas fa-seedling'></i>";
-							}else{
-								echo "<i class='fas fa-bone'></i>";
-							}
-						?>
-					</div>
-					<div class='mr-2 fill' align='center'>
-						<?php echo "<img src='images/dishes/".(string)$dish_details["dish_pic"]."' height=70% width=70%>";?>
-					</div>
-				</div>
-				<a class='card-footer text-white clearfix small z-1' 
-				href="javascript:setContent('restaurant?id=<?php echo (string)$dish_details["res_id"]; ?>&dishid=<?php echo (string)$dish_details["dish_id"]; ?>' );" >
-					<span class='float-left'><?php echo (string)$dish_details["res_name"]
-					." ( ".(string)$dish_details["res_rating"]." )"; ?></span>
-					<span class='float-right'>
-						<?php echo "Rs.".(string)$dish_details["dish_price"]; ?><i class='fas fa-angle-right'></i>
-					</span>
-				</a>
-			</div>
-		</div>
-		<?php
-	}
-	echo "</div>";
-} else {
+         
+          <?php
+        }
+    }
+
+?>
+           </div>
+    </section><!-- End Popular Dish of the day Section -->
+    <!------Popular Restaurant of the Day------->
+<section id="Food" class="Food">
+<a class="food" style="font-size: 30px;">Popular Restaurant of the Day</a>
+<div class="row">
+<?php
+    require_once ('config.php');
+    $i = 1;
+    $query = "SELECT
+restaurants.restaurant_id,
+restaurants.name,
+restaurants.rating,
+count(orders.restaurant_id) AS freq
+FROM
+restaurants
+INNER JOIN orders ON orders.restaurant_id = restaurants.restaurant_id
+WHERE orders.date_time<=CONCAT(CURDATE(), ' 23:59:59')
+GROUP BY
+restaurants.restaurant_id
+ORDER BY
+freq
+DESC";
+    $result = mysqli_query($conn, $query) or trigger_error(mysqli_error($conn));
+
+    if ($result)
+    {
+        while ($row = mysqli_fetch_assoc($result) and $i <= 8)
+        {
+            $res_id = $row['restaurant_id'];
+            $res_nam = $row['name'];
+            $res_rat = $row['rating'];
+            $i = $i + 1;
+?>
+      
+      
+        
+        <a class='col-xl-3 col-sm-6 mb-3' align='center' href="javascript:setContent('restaurant.php?res_id=<?php echo $res_id; ?>');" ><div class="card ">
+          
+          <div class="card_image">
+           <img src="images/restaurants/res_<?php echo sprintf('%05d', $res_id); ?>.jpg" />
+            </div>
+          <div class="card_title title-white">
+            <p ><?php echo "$res_nam"; ?><br><?php echo "$res_rat"; ?></p>
+            
+          </div>
+        </div></a>
+
+
+         
+          <?php
+        }
+    }
+
+?>
+           </div>
+    </section><!-- End Popular Restaurant of the Day Section -->
+    <!------Popular dishe of the Month------->
+<section id="Food" class="Food">
+<a class="food" style="font-size: 30px;">Popular Dish of the Month </a>
+<div class="row">
+<?php
+    require_once ('config.php');
+
+    $query = "SELECT
+restaurant_dishes.dish_id,restaurant_dishes.restaurant_id,
+restaurant_dishes.price,
+restaurant_dishes.pic,
+restaurant_dishes.name,
+SUM(ordered_dishes.quantity) AS freq
+FROM
+ordered_dishes
+INNER JOIN restaurant_dishes ON ordered_dishes.dish_id = restaurant_dishes.dish_id 
+INNER JOIN orders ON ordered_dishes.order_id = orders.order_id 
+WHERE MONTH(orders.date_time)=MONTH(CURDATE())
+GROUP BY
+restaurant_dishes.dish_id
+ORDER BY
+freq desc
+LIMIT 8
+";
+    $result = mysqli_query($conn, $query) or trigger_error(mysqli_error($conn));
+
+    if ($result)
+    {
+        while ($row = mysqli_fetch_assoc($result))
+        {
+            $dish_nam = $row['name'];$res_id = $row['restaurant_id'];
+            $dish_prc = $row['price'];
+            $dish_pic = $row['pic'];
+
+?>
+   
+      
+        
+        <a class='col-xl-3 col-sm-6 mb-3' align='center' href="javascript:setContent('restaurant.php?res_id=<?php echo $res_id; ?>');" ><div class="card ">
+          
+          <div class="card_image">
+           <img src="images/dishes/<?php echo "$dish_pic"; ?>" />
+            </div>
+          <div class="card_title title-white">
+            <p><?php echo "$dish_nam"; ?></p>
+          </div>
+        </div>
+        </a>
+
+
+         
+          <?php
+        }
+    }
+
+?>
+           </div>
+    </section><!-- End Popular Dish of the Month Section -->
+
+     <!------Popular Restaurant of the Month------->
+<section id="Food" class="Food">
+<a class="food" style="font-size: 30px;">Popular Restaurant of the Month</a>
+<div class="row">
+<?php
+    require_once ('config.php');
+    $i = 1;
+    $query5 = "SELECT
+restaurants.restaurant_id,
+restaurants.name,
+restaurants.rating,
+count(orders.restaurant_id) AS freq
+FROM
+restaurants
+INNER JOIN orders ON orders.restaurant_id = restaurants.restaurant_id
+WHERE MONTH(orders.date_time)=MONTH(CURDATE())
+GROUP BY
+restaurants.restaurant_id
+ORDER BY
+freq
+DESC
+";
+    $result5 = mysqli_query($conn, $query5) or trigger_error(mysqli_error($conn));
+
+    if ($result)
+    {
+        while ($row = mysqli_fetch_assoc($result5) and $i <= 8)
+        {
+
+            $res_id = $row['restaurant_id'];
+            $res_nam5 = $row['name'];
+            $res_rat5 = $row['rating'];
+            $i = $i + 1;
+?>
+      
+      
+        
+        <a class='col-xl-3 col-sm-6 mb-3' align='center' href="javascript:setContent('restaurant.php?res_id=<?php echo $res_id; ?>');" ><div class="card ">
+          
+          <div class="card_image">
+           <img src="images/restaurants/res_<?php echo sprintf('%05d', $res_id); ?>.jpg" />
+            </div>
+          <div class="card_title title-white">
+            <p ><?php echo "$res_nam5"; ?><br><?php echo "$res_rat5"; ?></p>
+            
+          </div>
+        </div>
+        </a>
+
+
+         
+          <?php
+        }
+    }
+
+?>
+           </div>
+    </section><!-- End Popular Restaurant of the Month Section -->
+
+<!------Popular dishes------->
+<section id="Food" class="Food">
+<a class="food" style="font-size: 30px;">Popular Dishes</a>
+<div class="row">
+<?php
+    require_once ('config.php');
+    $i = 1;
+    $query = "SELECT
+restaurant_dishes.dish_id,restaurant_dishes.restaurant_id,
+restaurant_dishes.pic,
+restaurant_dishes.price,
+restaurant_dishes.name,
+SUM(ordered_dishes.quantity) AS freq
+FROM
+restaurant_dishes
+INNER JOIN ordered_dishes ON ordered_dishes.dish_id = restaurant_dishes.dish_id
+GROUP BY
+restaurant_dishes.dish_id
+ORDER BY
+freq desc";
+    $result = mysqli_query($conn, $query) or trigger_error(mysqli_error($conn));
+
+    if ($result)
+    {
+        while ($row = mysqli_fetch_assoc($result) and $i <= 8)
+        {
+            $dish_nam = $row['name'];$res_id = $row['restaurant_id'];
+            $dish_prc = $row['price'];
+            $dish_pic = $row['pic'];
+            $i = $i + 1;
+?>
+   
+      
+        
+        <a class='col-xl-3 col-sm-6 mb-3' align='center' href="javascript:setContent('restaurant.php?res_id=<?php echo $res_id; ?>');" ><div class="card ">
+          
+          <div class="card_image">
+           <img src="images/dishes/<?php echo "$dish_pic"; ?>" />
+            </div>
+          <div class="card_title title-white">
+            <p><?php echo "$dish_nam"; ?></p>
+          </div>
+        </div>
+        </a>
+
+
+         
+          <?php
+        }
+    }
+
+?>
+           </div>
+    </section><!-- End Popular Dish Section -->
+<!------Popular Restaurant------->
+<section id="Food" class="Food">
+<a class="food" style="font-size: 30px;">Popular Restaurant</a>
+<div class="row">
+<?php
+    require_once ('config.php');
+    $i = 1;
+    $query = "SELECT
+restaurants.restaurant_id,
+restaurants.name,
+restaurants.rating,
+count(orders.restaurant_id) AS freq
+FROM
+restaurants
+INNER JOIN orders ON orders.restaurant_id = restaurants.restaurant_id
+GROUP BY
+restaurants.restaurant_id
+ORDER BY
+freq
+DESC";
+    $result = mysqli_query($conn, $query) or trigger_error(mysqli_error($conn));
+
+    if ($result)
+    {
+        while ($row = mysqli_fetch_assoc($result) and $i <= 8)
+        {
+            $res_nam = $row['name'];
+            $res_id = $row['restaurant_id'];
+            $res_rat = $row['rating'];
+            $i = $i + 1;
+?>
+      
+      
+        
+        <a class='col-xl-3 col-sm-6 mb-3' align='center' href="javascript:setContent('restaurant.php?res_id=<?php echo $res_id; ?>');" ><div class="card ">
+          
+          <div class="card_image">
+           <img src="images/restaurants/res_<?php echo sprintf('%05d', $res_id); ?>.jpg" />
+            </div>
+          <div class="card_title title-white">
+            <p ><?php echo "$res_nam"; ?><br><?php echo "$res_rat"; ?></p>
+            
+          </div>
+        </div>
+        </a>
+
+
+         
+          <?php
+        }
+    }
+
+?>
+           </div>
+    </section><!-- End Popular Restaurant Section -->
+    <?php
+}
+else
+{
     echo "<script>window.location.replace('index.php');</script>";
 }
-
 

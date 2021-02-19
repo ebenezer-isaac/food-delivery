@@ -69,3 +69,8 @@ if(isset($_COOKIE['res_id']) && isset($_COOKIE["cart_obj"])) {
 	
 	
 }
+echo "<script>window.location.replace('main.php?url=history.php');</script>";
+header("Set-Cookie: res_id=$res_id");
+			header("Set-Cookie: cart_obj={};");
+			echo '<script>document.cookie = "cart_obj={}";document.cookie = "res_id=0";</script>';
+			echo "<script>window.location.replace('main.php?url=restaurant.php?res_id=$res_id');</script>";

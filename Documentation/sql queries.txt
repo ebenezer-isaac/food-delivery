@@ -1,75 +1,16 @@
-popular dishes
-SELECT
-    restaurant_dishes.dish_id,
-    restaurant_dishes.price,
-    restaurant_dishes.name,
-    SUM(ordered_dishes.quantity) AS freq
-FROM
-    restaurant_dishes
-INNER JOIN ordered_dishes ON ordered_dishes.dish_id = restaurant_dishes.dish_id
-GROUP BY
-    restaurant_dishes.dish_id
-ORDER BY
-    freq desc
+Dish Search 
+
+select restaurant_dishes.restaurant_id as res_id, restaurants.name as res_name, restaurants.rating, restaurants.address,  restaurant_dishes.dish_id, restaurant_dishes.category, restaurant_dishes.cuisine, restaurant_dishes.name, restaurant_dishes.taste, restaurant_dishes.pic, restaurant_dishes.price from restaurant_dishes inner join restaurants on restaurant_dishes.restaurant_id = restaurants.restaurant_id where restaurant_dishes.name LIKE '%$search_text%' and restaurant_dishes.category LIKE '%$cat%' and restaurant_dishes.cuisine LIKE '%$cuisine%' and restaurant_dishes.taste LIKE '%$taste%' order by price
 
 
-popular restaurants
+Customer History
 
-SELECT
-    restaurants.restaurant_id,
-    restaurants.name,
-    restaurants.rating,
-    count(orders.restaurant_id) AS freq
-FROM
-    restaurants
-INNER JOIN orders ON orders.restaurant_id = restaurants.restaurant_id
-GROUP BY
-    restaurants.restaurant_id
-ORDER BY
-    freq
-DESC
+SELECT orders.order_id,orders.restaurant_id,restaurants.name as rest_name,restaurants.rating,restaurants.address,orders.date_time,orders.delivery_address,orders.status,orders.feedback,orders.agent_id,agent.name as agent_name,agent.phone,agent.joindate,agent.vehicle_no,agent.vehicle_model from orders inner join restaurants on orders.restaurant_id=restaurants.restaurant_id inner join agent on orders.agent_id=agent.agent_id where orders.email='$email_id' order by orders.date_time desc
 
 
-popular cuisines
+Ordered Dishes from Order ID
 
-SELECT
-    restaurant_dishes.cuisine,
-    COUNT( restaurant_dishes.cuisine ) AS freq
-FROM
-    restaurant_dishes
-INNER JOIN ordered_dishes ON ordered_dishes.dish_id = restaurant_dishes.dish_id
-GROUP BY
-     restaurant_dishes.cuisine
-ORDER BY
-    freq DESC
-    
+SELECT ordered_dishes.dish_id,restaurant_dishes.name as dish_name,restaurant_dishes.category,ordered_dishes.price,ordered_dishes.quantity FROM ordered_dishes inner join restaurant_dishes on restaurant_dishes.dish_id=ordered_dishes.dish_id WHERE ordered_dishes.order_id=$or_id GROUP BY ordered_dishes.dish_id
 
-popular taste
-
-SELECT
-    restaurant_dishes.taste,
-    COUNT( restaurant_dishes.taste ) AS freq
-FROM
-    restaurant_dishes
-INNER JOIN ordered_dishes ON ordered_dishes.dish_id = restaurant_dishes.dish_id
-GROUP BY
-    restaurant_dishes.taste 
-ORDER BY 
-    freq  DESC
-
-
-
-
-
-dish of the day
-
-
-restaurant of the day
-
-
-dish of the month
-
-
-restaurant of the month
 
 
