@@ -483,11 +483,11 @@ if($result)
       <h2>About Us</h2>
     </div>
     
-    <div class="footer-top">
+    <div class="footer-top" style="color:white !important;">
       <div class="container">
         <div class="row" style="margin:15px">
 
-          <div class="about" data-aos="fade-up">
+          <div class="about" >
             <h3>FOOD CLUB</h3>
             <p>
               Gandhi nagar <br>
@@ -499,7 +499,7 @@ if($result)
             <br>
           </div>
 
-          <div class="about1" data-aos="fade-up" data-aos-delay="100">
+          <div class="about1"  >
             <h4>Useful Links</h4>
             <ul style="list-style-type:none;">
               <li><i class="bx bx-chevron-right"></i> <a href="#">Home</a></li>
@@ -513,7 +513,7 @@ if($result)
 
          
 
-          <div class="about2" data-aos="fade-up" data-aos-delay="300">
+          <div class="about2">
             <h4>Our Social Networks</h4>
             <p>Follow us on the social media  </p>
             <div class="social-links mt-3">

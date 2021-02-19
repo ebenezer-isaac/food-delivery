@@ -1,16 +1,40 @@
-Dish Search 
-
+1. Dish Search 
 select restaurant_dishes.restaurant_id as res_id, restaurants.name as res_name, restaurants.rating, restaurants.address,  restaurant_dishes.dish_id, restaurant_dishes.category, restaurant_dishes.cuisine, restaurant_dishes.name, restaurant_dishes.taste, restaurant_dishes.pic, restaurant_dishes.price from restaurant_dishes inner join restaurants on restaurant_dishes.restaurant_id = restaurants.restaurant_id where restaurant_dishes.name LIKE '%$search_text%' and restaurant_dishes.category LIKE '%$cat%' and restaurant_dishes.cuisine LIKE '%$cuisine%' and restaurant_dishes.taste LIKE '%$taste%' order by price
 
 
-Customer History
-
+2. Customer History
 SELECT orders.order_id,orders.restaurant_id,restaurants.name as rest_name,restaurants.rating,restaurants.address,orders.date_time,orders.delivery_address,orders.status,orders.feedback,orders.agent_id,agent.name as agent_name,agent.phone,agent.joindate,agent.vehicle_no,agent.vehicle_model from orders inner join restaurants on orders.restaurant_id=restaurants.restaurant_id inner join agent on orders.agent_id=agent.agent_id where orders.email='$email_id' order by orders.date_time desc
 
 
-Ordered Dishes from Order ID
-
+3. Ordered Dishes from Order ID
 SELECT ordered_dishes.dish_id,restaurant_dishes.name as dish_name,restaurant_dishes.category,ordered_dishes.price,ordered_dishes.quantity FROM ordered_dishes inner join restaurant_dishes on restaurant_dishes.dish_id=ordered_dishes.dish_id WHERE ordered_dishes.order_id=$or_id GROUP BY ordered_dishes.dish_id
 
+
+4. Dish of the Day
+SELECT restaurant_dishes.dish_id,restaurant_dishes.restaurant_id,restaurant_dishes.pic,restaurant_dishes.price,restaurant_dishes.name,SUM(rdered_dishes.quantity) AS freq FROM ordered_dishes INNER JOIN restaurant_dishes ON ordered_dishes.dish_id = restaurant_dishes.dish_id INNER JOIN orders ON ordered_dishes.order_id = orders.order_id WHERE orders.date_time<=CONCAT(CURDATE(), ' 23:59:59') and orders.date_time>=CONCAT(CURDATE(), ' 00:00:00' ) GROUP BY restaurant_dishes.dish_id ORDER BY freq desc
+
+
+5. Restaurant of the Day
+SELECT restaurants.restaurant_id, restaurants.name, restaurants.rating, count(orders.restaurant_id) AS freq FROM restaurants INNER JOIN  rders ON orders.restaurant_id = restaurants.restaurant_id WHERE orders.date_time<=CONCAT(CURDATE(), ' 23:59:59') GROUP BY restaurants.restaurant_id ORDER BY freq DESC
+
+
+6. Dish of the Month
+SELECT restaurant_dishes.dish_id,restaurant_dishes.restaurant_id, restaurant_dishes.price, restaurant_dishes.pic, restaurant_dishes.name, SUM(ordered_dishes.quantity) AS freq FROM ordered_dishes INNER JOIN restaurant_dishes ON ordered_dishes.dish_id = restaurant_dishes.dish_id  INNER JOIN orders ON ordered_dishes.order_id = orders.order_id  WHERE MONTH(orders.date_time)=MONTH(CURDATE()) GROUP BY restaurant_dishes.dish_id ORDER BY freq desc LIMIT 8
+
+
+7. Restaurant of the Month
+SELECT restaurants.restaurant_id, restaurants.name, restaurants.rating, count(orders.restaurant_id) AS freq FROM restaurants INNER JOIN  rders ON orders.restaurant_id = restaurants.restaurant_id WHERE MONTH(orders.date_time)=MONTH(CURDATE()) GROUP BY restaurants.restaurant_id ORDER BY freq DESC
+
+
+8. Popular Dishes 
+SELECT  restaurant_dishes.dish_id,restaurant_dishes.restaurant_id, restaurant_dishes.pic, restaurant_dishes.price, restaurant_dishes.name, SUM(ordered_dishes.quantity) AS freq FROM restaurant_dishes INNER JOIN ordered_dishes ON ordered_dishes.dish_id = restaurant_dishes.dish_id GROUP BY restaurant_dishes.dish_id ORDER BY freq desc
+
+
+9. Popular Restaurant
+SELECT  restaurants.restaurant_id, restaurants.name, restaurants.rating, count(orders.restaurant_id) AS freq FROM restaurants INNER JOIN  rders ON orders.restaurant_id = restaurants.restaurant_id GROUP BY restaurants.restaurant_id ORDER BY freq DESC
+
+
+10. Popular Cuisine 
+SELECT restaurant_dishes.cuisine, COUNT( restaurant_dishes.cuisine ) AS freq FROM restaurant_dishes INNER JOIN ordered_dishes ON  rdered_dishes.dish_id = restaurant_dishes.dish_id GROUP BY  restaurant_dishes.cuisine ORDER BY freq DESC limit 4
 
 
