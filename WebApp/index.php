@@ -84,6 +84,7 @@ require_once('config.php');
 $i =1;
 $query="SELECT
 restaurant_dishes.dish_id,
+restaurant_dishes.pic,
 restaurant_dishes.price,
 restaurant_dishes.name,
 SUM(ordered_dishes.quantity) AS freq
@@ -99,12 +100,13 @@ freq desc
 ";
 $result=mysqli_query($conn,$query) or trigger_error(mysqli_error($conn));
 
-if($row=mysqli_fetch_assoc($result))
+if($result)
   {
     while($row=mysqli_fetch_assoc($result) and $i<=8)
     {
         $dish_nam=$row['name'];
         $dish_prc=$row['price'];
+        $dish_pic=$row['pic'];
         $i=$i+1;
       ?>
    
@@ -113,7 +115,7 @@ if($row=mysqli_fetch_assoc($result))
         <div class="card ">
           
           <div class="card_image">
-           <img src="images/img1.jpg" />
+           <img src="images/dishes/<?php echo"$dish_pic"; ?>" />
             </div>
           <div class="card_title title-white">
             <p><?php echo"$dish_nam"; ?></p>
@@ -153,10 +155,11 @@ freq
 DESC";
 $result=mysqli_query($conn,$query) or trigger_error(mysqli_error($conn));
 
-if($row=mysqli_fetch_assoc($result))
+if($result)
   {
     while($row=mysqli_fetch_assoc($result) and $i<=8)
     {
+        $res_id=$row['restaurant_id'];
         $res_nam=$row['name'];
         $res_rat=$row['rating'];
         $i=$i+1;
@@ -167,7 +170,7 @@ if($row=mysqli_fetch_assoc($result))
         <div class="card ">
           
           <div class="card_image">
-           <img src="images/img4.jpg" />
+           <img src="images/restaurants/res_<?php echo sprintf('%05d', $res_id);?>.jpg" />
             </div>
           <div class="card_title title-white">
             <p ><?php echo"$res_nam";?><br><?php echo"$res_rat"; ?></p>
@@ -195,6 +198,7 @@ require_once('config.php');
 $query="SELECT
 restaurant_dishes.dish_id,
 restaurant_dishes.price,
+restaurant_dishes.pic,
 restaurant_dishes.name,
 SUM(ordered_dishes.quantity) AS freq
 FROM
@@ -206,16 +210,17 @@ GROUP BY
 restaurant_dishes.dish_id
 ORDER BY
 freq desc
-LIMIT 9
+LIMIT 8
 ";
 $result=mysqli_query($conn,$query) or trigger_error(mysqli_error($conn));
 
-if($row=mysqli_fetch_assoc($result))
+if($result)
   {
     while($row=mysqli_fetch_assoc($result) )
     {
         $dish_nam=$row['name'];
         $dish_prc=$row['price'];
+        $dish_pic=$row['pic'];
        
       ?>
    
@@ -224,7 +229,7 @@ if($row=mysqli_fetch_assoc($result))
         <div class="card ">
           
           <div class="card_image">
-           <img src="images/img1.jpg" />
+           <img src="images/dishes/<?php echo"$dish_pic"; ?>" />
             </div>
           <div class="card_title title-white">
             <p><?php echo"$dish_nam"; ?></p>
@@ -266,10 +271,12 @@ DESC
 ";
 $result5=mysqli_query($conn,$query5) or trigger_error(mysqli_error($conn));
 
-if($row=mysqli_fetch_assoc($result5))
+if($result)
   {
     while($row=mysqli_fetch_assoc($result5) and $i<=8)
     {
+        
+        $res_id=$row['restaurant_id'];
         $res_nam5=$row['name'];
         $res_rat5=$row['rating'];
         $i=$i+1;
@@ -280,7 +287,7 @@ if($row=mysqli_fetch_assoc($result5))
         <div class="card ">
           
           <div class="card_image">
-           <img src="images/img4.jpg" />
+           <img src="images/restaurants/res_<?php echo sprintf('%05d', $res_id);?>.jpg" />
             </div>
           <div class="card_title title-white">
             <p ><?php echo"$res_nam5";?><br><?php echo"$res_rat5"; ?></p>
@@ -308,6 +315,7 @@ require_once('config.php');
 $i =1;
 $query="SELECT
 restaurant_dishes.dish_id,
+restaurant_dishes.pic,
 restaurant_dishes.price,
 restaurant_dishes.name,
 SUM(ordered_dishes.quantity) AS freq
@@ -320,12 +328,13 @@ ORDER BY
 freq desc";
 $result=mysqli_query($conn,$query) or trigger_error(mysqli_error($conn));
 
-if($row=mysqli_fetch_assoc($result))
+if($result)
   {
     while($row=mysqli_fetch_assoc($result) and $i<=8)
     {
         $dish_nam=$row['name'];
         $dish_prc=$row['price'];
+        $dish_pic=$row['pic'];
         $i=$i+1;
       ?>
    
@@ -334,7 +343,7 @@ if($row=mysqli_fetch_assoc($result))
         <div class="card ">
           
           <div class="card_image">
-           <img src="images/img1.jpg" />
+           <img src="images/dishes/<?php echo"$dish_pic"; ?>" />
             </div>
           <div class="card_title title-white">
             <p><?php echo"$dish_nam"; ?></p>
@@ -373,11 +382,12 @@ freq
 DESC";
 $result=mysqli_query($conn,$query) or trigger_error(mysqli_error($conn));
 
-if($row=mysqli_fetch_assoc($result))
+if($result)
   {
     while($row=mysqli_fetch_assoc($result) and $i<=8)
     {
         $res_nam=$row['name'];
+        $res_id=$row['restaurant_id'];
         $res_rat=$row['rating'];
         $i=$i+1;
       ?>
@@ -387,7 +397,7 @@ if($row=mysqli_fetch_assoc($result))
         <div class="card ">
           
           <div class="card_image">
-           <img src="images/img4.jpg" />
+           <img src="images/restaurants/res_<?php echo sprintf('%05d', $res_id);?>.jpg" />
             </div>
           <div class="card_title title-white">
             <p ><?php echo"$res_nam";?><br><?php echo"$res_rat"; ?></p>
@@ -421,10 +431,10 @@ INNER JOIN ordered_dishes ON ordered_dishes.dish_id = restaurant_dishes.dish_id
 GROUP BY
  restaurant_dishes.cuisine
 ORDER BY
-freq DESC";
+freq DESC limit 4";
 $result=mysqli_query($conn,$query) or trigger_error(mysqli_error($conn));
 
-if($row=mysqli_fetch_assoc($result))
+if($result)
   {
     while($row=mysqli_fetch_assoc($result))
     {
