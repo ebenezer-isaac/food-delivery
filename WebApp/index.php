@@ -480,7 +480,7 @@ if($result)
   <section id="footer">
 
     <div class="section-title">
-      <h2>About Us</h2>
+      <h2>About US</h2>
     </div>
     
     <div class="footer-top" style="color:white !important;">
@@ -498,7 +498,6 @@ if($result)
             </p>
             <br>
           </div>
-
           <div class="about1"  >
             <h4>Useful Links</h4>
             <ul style="list-style-type:none;">
@@ -510,9 +509,6 @@ if($result)
             </ul>
             <br>
           </div>
-
-         
-
           <div class="about2">
             <h4>Our Social Networks</h4>
             <p>Follow us on the social media  </p>
@@ -533,7 +529,7 @@ if($result)
       <div class="copyright">
         &copy; Copyright <strong><span>FOOD CLUB</span></strong>. All Rights Reserved
       </div>
-     
+     <div>
 
   <a href="#" class="back-to-top"><i class="icofont-simple-up"></i></a>
     </section>
