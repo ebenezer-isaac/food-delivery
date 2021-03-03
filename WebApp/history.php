@@ -1,5 +1,13 @@
 <?php
 session_start();
+	require_once _DIR_ . '/vendor/autoload.php';
+	try {
+	    $manager = new MongoDB\Driver\Manager("mongodb+srv://food_delivery:contech%402021@food-delivery.3ukn0.mongodb.net/food_delivery?authSource=admin&replicaSet=atlas-o0xpuf-shard-0&w=majority&readPreference=primary&appname=MongoDB%20Compass&retryWrites=true&ssl=true");
+		$query = new MongoDB\Driver\Query([]);
+		}
+		catch(Exception $e){
+		echo $e;
+	}		
 $email_id=$_SESSION["customer_id"];
 $servername = "sql290.main-hosting.eu";
 $username = "u117204720_food_club";
@@ -10,7 +18,7 @@ $conn = new mysqli($servername, $username, $password, $dbname);
 if ($conn->connect_error) {
   die("Connection failed: " . $conn->connect_error);
 }
-$sql="SELECT orders.order_id,orders.restaurant_id,restaurants.name as rest_name,restaurants.rating,restaurants.address,orders.date_time,orders.delivery_address,orders.status,orders.feedback,orders.agent_id,agent.name as agent_name,agent.phone,agent.joindate,agent.vehicle_no,agent.vehicle_model from orders inner join restaurants on orders.restaurant_id=restaurants.restaurant_id inner join agent on orders.agent_id=agent.agent_id where orders.email='$email_id' order by orders.date_time desc";
+$sql="SELECT orders.order_id,orders.restaurant_id,restaurants.name as rest_name,restaurants.rating,restaurants.address,orders.date_time,orders.delivery_address,orders.status,orders.feedback,orders.agent_id from orders inner join restaurants on orders.restaurant_id=restaurants.restaurant_id where orders.email='$email_id' order by orders.date_time desc";
 $result = $conn->query($sql);
 if($result){
 	while($row=$result->fetch_assoc()){
@@ -37,6 +45,7 @@ if($result){
 						echo "<tr><td style='text-align:left;'>Delivery Address</td><td> : </td><td style='text-align:left;'>".$row["delivery_address"]."</td></tr>";
 						echo "<tr><td style='text-align:left;'>Order Status</td><td> : </td><td style='text-align:left;'>".$row["status"]."</td></tr>";
 						echo "<tr><td style='text-align:left;'>Feedback</td><td> : </td><td style='text-align:left'>".$row["feedback"]."</td></tr></table></div>";
+						$agent_id=$row["agent_id"];
 					?>
 				</div>
 				<div class='card-body'>
@@ -91,9 +100,21 @@ if($result){
 							</div>
 							<div class='card-footer small text-muted'>
 						   		<?php 
-						   			echo "Delivery Agent Details   : ".$row["agent_name"]."( +91 ".$row["phone"].") <br>";
-									echo "Join Date                : ".$row["joindate"]."<br>";
-									echo "Delivery Vehicle Details : ".$row["vehicle_no"]." ( ".$row["vehicle_model"]." ) <br>";
+						   			try
+										{
+											$filter = ['id' => $agent_id];
+											$query = new \MongoDB\Driver\Query($filter);
+											$cursor = $manager->executeQuery("food_delivery.agent",$query);
+											foreach($cursor as $document){
+											    echo "Delivery Agent Name   	 : ".$document->name<br>;
+											    echo "Delivery Agent Phone Number:".$document->phone<br>;
+											    echo "Join Date                	 : ".$document->joindate<br>;
+											    echo "Vehicle Number 			 :".$document->vehicle_no<br>;
+											    echo "Vehicle Model 			 :".$document->vehicle_model<br>;
+										}
+										catch(Exception $e){
+											echo $e;
+										}
 								?>
 							</div>
 						</div>
@@ -102,6 +123,5 @@ if($result){
 				<div class='card-footer text-white clearfix small z-1' >
 				</div>
 			</div>
-		</div><br><?php
-	}
-}?>
+		</div><br>
+	
