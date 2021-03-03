@@ -1,13 +1,13 @@
 <?php
 session_start();
-	require_once _DIR_ . '/vendor/autoload.php';
-	try {
-	    $manager = new MongoDB\Driver\Manager("mongodb+srv://food_delivery:contech%402021@food-delivery.3ukn0.mongodb.net/food_delivery?authSource=admin&replicaSet=atlas-o0xpuf-shard-0&w=majority&readPreference=primary&appname=MongoDB%20Compass&retryWrites=true&ssl=true");
-		$query = new MongoDB\Driver\Query([]);
-		}
-		catch(Exception $e){
-		echo $e;
-	}		
+require_once 'vendor/autoload.php';
+try {
+    $manager = new MongoDB\Driver\Manager("mongodb+srv://food_delivery:contech%402021@food-delivery.3ukn0.mongodb.net/food_delivery?authSource=admin&replicaSet=atlas-o0xpuf-shard-0&w=majority&readPreference=primary&appname=MongoDB%20Compass&retryWrites=true&ssl=true");
+	$query = new MongoDB\Driver\Query([]);
+	}
+	catch(Exception $e){
+	echo $e;
+}		
 $email_id=$_SESSION["customer_id"];
 $servername = "sql290.main-hosting.eu";
 $username = "u117204720_food_club";
@@ -100,21 +100,20 @@ if($result){
 							</div>
 							<div class='card-footer small text-muted'>
 						   		<?php 
-						   			try
-										{
-											$filter = ['id' => $agent_id];
-											$query = new \MongoDB\Driver\Query($filter);
-											$cursor = $manager->executeQuery("food_delivery.agent",$query);
-											foreach($cursor as $document){
-											    echo "Delivery Agent Name   	 : ".$document->name<br>;
-											    echo "Delivery Agent Phone Number:".$document->phone<br>;
-											    echo "Join Date                	 : ".$document->joindate<br>;
-											    echo "Vehicle Number 			 :".$document->vehicle_no<br>;
-											    echo "Vehicle Model 			 :".$document->vehicle_model<br>;
+						   			try{
+										$filter = ['id' => $row["agent_id"]];
+										$query = new \MongoDB\Driver\Query($filter);
+										$cursor = $manager->executeQuery("food_delivery.agents",$query);
+										foreach($cursor as $document){
+										    echo "Delivery Agent Name   	 : ".$document->name."<br>";
+										    echo "Delivery Agent Phone Number:".$document->phone."<br>";
+										    echo "Join Date                	 : ".$document->joindate."<br>";
+										    echo "Vehicle Number 			 :".$document->vehicle_no."<br>";
+										    echo "Vehicle Model 			 :".$document->vehicle_model."<br>";
 										}
-										catch(Exception $e){
-											echo $e;
-										}
+									}catch(Exception $e){
+										echo $e;
+									}
 								?>
 							</div>
 						</div>
@@ -124,4 +123,6 @@ if($result){
 				</div>
 			</div>
 		</div><br>
-	
+		<?php
+	}
+}?>

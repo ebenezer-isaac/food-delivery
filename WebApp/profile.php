@@ -1,17 +1,18 @@
 <?php
 	require_once __DIR__ . '/vendor/autoload.php';
+	session_start();
+	$email = $_SESSION["customer_id"];
 	try {
 	    $manager = new MongoDB\Driver\Manager("mongodb+srv://food_delivery:contech%402021@food-delivery.3ukn0.mongodb.net/food_delivery?authSource=admin&replicaSet=atlas-o0xpuf-shard-0&w=majority&readPreference=primary&appname=MongoDB%20Compass&retryWrites=true&ssl=true");
 		$query = new MongoDB\Driver\Query([]);
-		$filter = ['id' => '0'];
+		$filter = ['email' => $email];
 		$query = new \MongoDB\Driver\Query($filter);
-		$cursor = $manager->executeQuery("food_delivery.agents",$query);
+		$cursor = $manager->executeQuery("food_delivery.customers",$query);
 		$name = "";
 		$phone = "";
 		$address = "";
 		$preference = "";
-		session_start();
-		$email = $_SESSION["customer_id"];
+
 		foreach($cursor as $customer){
 		    $name	 = $customer->name;
 			$phone = $customer->phone;
