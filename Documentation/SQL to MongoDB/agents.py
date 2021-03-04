@@ -3,7 +3,6 @@ import pymongo, urllib.parse, mysql.connector, random
 client = pymongo.MongoClient("mongodb+srv://food_delivery:" + urllib.parse.quote("contech@2021") + "@food-delivery.3ukn0.mongodb.net/food_delivery?retryWrites=true&w=majority")
 mydb = client["food_delivery"]
 mycol = mydb["agents"]
-db = client.test
 
 mydb = mysql.connector.connect(
 	host="sql290.main-hosting.eu",

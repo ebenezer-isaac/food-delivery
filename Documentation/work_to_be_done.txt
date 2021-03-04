@@ -1,0 +1,27 @@
+collect menu description for all dishes
+documentation
+database design for mongodb
+shifting to mongodb
+
+explore complex queries for mongodb
+easy:
+	restaurant.php
+	retaurants.php
+	restaurant_search.php
+	dish_search.php
+complex:
+	history.php
+	home.php (statistics)
+
+new features :
+	easy: 
+		search by menu description
+		search by ingredients
+		signup for both customer and restaurant
+		add dishes from restaurant login
+		delete dishes from restaurant login
+	complex : 
+		forgot password with smtp otp
+		edit restaurant details
+		edit dishes from restaurant login
+		view statistics from restaurant login

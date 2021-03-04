@@ -42,7 +42,7 @@ for restaurant_id in range(1,33):
 		sql = "INSERT INTO `orders`(`order_id`,`email`, `restaurant_id`, `agent_id`, `date_time`, `delivery_address`, `status`, `feedback`)  VALUES (%s,%s,%s,%s,%s,%s,%s,%s)"
 		random_status = random.randint(0,2)
 		random_feedback = random.randint(1,15)
-		val = (order_id, customers[customer_id][0], restaurant_id, agent_id, random_date("2021/01/01 01:30:00", "2021/02/07 23:59:00", random.random()) , customers[customer_id][1], status[random_status], str(5-(random_feedback/10)))
+		val = (order_id, customers[customer_id][0], restaurant_id, agent_id, random_date("2021/02/07 01:30:00", "2021/03/31 23:59:00", random.random()) , customers[customer_id][1], status[random_status], str(5-(random_feedback/10)))
 		mycursor.execute(sql, val)
 		mydb.commit()
 		for dish_counter in range(0,dish_count):

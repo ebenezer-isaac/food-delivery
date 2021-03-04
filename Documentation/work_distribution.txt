@@ -13,8 +13,17 @@ dishes php_basic gowshikumar
 cart js agusta
 
 dish images/ ingredients gayathri today/tomorrow 
-customer gowshikkumar tmr
-login with gmail(api) -ebi tmr
+customer gowshikkumar
+login with gmail(api) -ebi
 cart -agusta 
 restaurant search -esther
 home page -edison
+
+
+
+esther laptop unavailable
+edison hospital
+gayathri history (agent id)
+agusta history (agent id)
+ebenezer googin autosignin, profile
+gowshikkumar login
