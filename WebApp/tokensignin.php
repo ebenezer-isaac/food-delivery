@@ -10,7 +10,6 @@ $payload = $client->verifyIdToken($id_token);
 if ($payload) {
 	session_start();
 	$_SESSION["customer_id"]=$email;
-	echo "1";
 	require_once 'vendor/autoload.php';
 	$manager = new MongoDB\Driver\Manager("mongodb+srv://food_delivery:contech%402021@food-delivery.3ukn0.mongodb.net/food_delivery?authSource=admin&replicaSet=atlas-o0xpuf-shard-0&w=majority&readPreference=primary&appname=MongoDB%20Compass&retryWrites=true&ssl=true");
 	$query = new MongoDB\Driver\Query([]);
@@ -24,11 +23,13 @@ if ($payload) {
 	if($flag==0){
 		$manager = new MongoDB\Client("mongodb+srv://food_delivery:contech%402021@food-delivery.3ukn0.mongodb.net/food_delivery?authSource=admin&replicaSet=atlas-o0xpuf-shard-0&w=majority&readPreference=primary&appname=MongoDB%20Compass&retryWrites=true&ssl=true");
 		$collection = $manager->food_delivery->login;
-		$insertOneResult = $collection->insertOne(
-		['email' => $email,"password":"google_signin"]);
+		$insertOneResult = $collection->insertOne(['email' => $email,"password" =>"google_signin"]);
 		$collection = $manager->food_delivery->customers;
 		$insertOneResult = $collection->insertOne(
 		['email' => $email]);
+		echo "2";
+	}else{
+		echo "1";
 	}
 } else {
   echo "0";

@@ -123,10 +123,13 @@ if (isset($_SESSION["customer_id"])) {
                     xhr.open('POST', 'tokensignin.php');
                     xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
                     xhr.onload = function() {
+                        alert(xhr.responseText);
                       if(xhr.responseText){
                         if (xhr.responseText == 1){
-                                window.location.replace("main.php?url=home.php");
-                        } else{
+                            window.location.replace("main.php?url=home.php");
+                        } else if(xhr.responseText == 2){
+                            window.location.replace("main.php?url=profile.php");
+                        }else{
                             $('.alert').fadeOut(500);
                             document.getElementById("mess").innerHTML = "Google Sigin Failed";
                             $('.pass-tf').addClass('wrong-entry');

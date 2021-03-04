@@ -2,22 +2,31 @@
 	require_once __DIR__ . '/vendor/autoload.php';
 	session_start();
 	$email = $_SESSION["customer_id"];
+	$name = "";
+	$phone = "";
+	$address = "";
+	$preference = "";
 	try {
 	    $manager = new MongoDB\Driver\Manager("mongodb+srv://food_delivery:contech%402021@food-delivery.3ukn0.mongodb.net/food_delivery?authSource=admin&replicaSet=atlas-o0xpuf-shard-0&w=majority&readPreference=primary&appname=MongoDB%20Compass&retryWrites=true&ssl=true");
 		$query = new MongoDB\Driver\Query([]);
 		$filter = ['email' => $email];
 		$query = new \MongoDB\Driver\Query($filter);
 		$cursor = $manager->executeQuery("food_delivery.customers",$query);
-		$name = "";
-		$phone = "";
-		$address = "";
-		$preference = "";
+
 
 		foreach($cursor as $customer){
-		    $name	 = $customer->name;
-			$phone = $customer->phone;
-			$address = $customer->address;
-			$preference = $customer->preference;
+			if(isset($customer->name)){
+				$name = $customer->name;
+			}
+		    if(isset($customer->phone)){
+				$phone = $customer->phone;
+			}
+			if(isset($customer->address)){
+				$address = $customer->address;
+			}
+			if(isset($customer->preference)){
+				$preference = $customer->preference;
+			}
 		}
 	}catch(Exception $e){
 		echo $e;
@@ -58,4 +67,27 @@ Profile
 	</table><br>
 	<input type="submit" name= "update" value="Update"></p>
 </form>
-		
+<br><br>
+<form action="password_save.php" method="get">
+	<table style='overflow: auto;'>
+		<tr>
+			<td style='text-align:left;' width = '20%'>New Password</td>
+			<td width = '5%'> : </td>
+			<td style='text-align:left;'><input onkeyup='checkPass()' type="password" name= "password_new" id= "password_new" size=30></td>
+		</tr>
+		<tr>
+			<td style='text-align:left;'>Confirm Password</td>
+			<td> : </td>
+			<td style='text-align:left;'><input onkeyup='checkPass()' type="password" name= "password_con" id= "password_con" size=30></td>
+		</tr>
+	</table><br>
+	<input type="submit" name= "update_pass" id= "update_pass" value="Change" disabled></p>
+</form>
+<script>
+	function checkPass(){
+		if(document.getElementById('password_new').value==document.getElementById('password_con').value){
+			document.getElementById('update_pass').disabled=false;
+		}else{
+			document.getElementById('update_pass').disabled=true;
+		}
+	}
