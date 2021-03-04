@@ -23,7 +23,7 @@ if (isset($_SESSION["customer_id"])) {
         <body id="page-top">
             <nav class="navbar navbar-expand navbar-dark bg-dark static-top">
                 <img src="images/logo.png" height="40" align='center' width="50"> 
-                <a class="navbar-brand mr-1" href="about.html" style='color:black;'>Food Club</a>
+                <a class="navbar-brand mr-1" href="index.php" style='color:black;'>Food Club</a>
                 <button class="btn btn-link btn-sm text-white order-1 order-sm-0" id="sidebarToggle" href="#"> 
                     <i style='color:black;' class="fas fa-bars"></i> </button> 
                 <form class="d-none d-md-inline-block form-inline ml-auto mr-0 mr-md-3 my-2 my-md-0"> </form>

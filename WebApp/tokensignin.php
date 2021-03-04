@@ -8,26 +8,28 @@ $CLIENT_ID = "741878761514-o7u4s9j21jjlq4opimncc64lpef966rc.apps.googleuserconte
 $client = new Google_Client(['client_id' => $CLIENT_ID]);
 $payload = $client->verifyIdToken($id_token);
 if ($payload) {
-	$servername = "sql290.main-hosting.eu";
-	$username = "u117204720_food_club";
-	$password = "5\$pANyPa^APH";
-	$dbname = "u117204720_food_club";
-	$conn = new mysqli($servername, $username, $password, $dbname);
-	if ($conn->connect_error) {
-	  die("Connection failed: " . $conn->connect_error);
-	}
-	$sql = "SELECT email FROM customer where email = ".$email;
-	$result = $conn->query($sql);
-	if ($result) {
-	  	$sql = "INSERT INTO `customer`(`email`, `name`) VALUES ('$email','$name')";
-		$conn->query($sql);
-		$sql = "INSERT INTO `login`(`email`, `password`) VALUES ('$email','google_signin')";
-		$conn->query($sql);
-	}
 	session_start();
 	$_SESSION["customer_id"]=$email;
 	echo "1";
-	$conn->close();
+	require_once 'vendor/autoload.php';
+	$manager = new MongoDB\Driver\Manager("mongodb+srv://food_delivery:contech%402021@food-delivery.3ukn0.mongodb.net/food_delivery?authSource=admin&replicaSet=atlas-o0xpuf-shard-0&w=majority&readPreference=primary&appname=MongoDB%20Compass&retryWrites=true&ssl=true");
+	$query = new MongoDB\Driver\Query([]);
+	$filter	  = ['email' => $email];
+	$query = new \MongoDB\Driver\Query($filter);
+	$cursor = $manager->executeQuery("food_delivery.login",$query);
+	$flag=0;
+	foreach($cursor as $document){
+		$flag=1;
+	}
+	if($flag==0){
+		$manager = new MongoDB\Client("mongodb+srv://food_delivery:contech%402021@food-delivery.3ukn0.mongodb.net/food_delivery?authSource=admin&replicaSet=atlas-o0xpuf-shard-0&w=majority&readPreference=primary&appname=MongoDB%20Compass&retryWrites=true&ssl=true");
+		$collection = $manager->food_delivery->login;
+		$insertOneResult = $collection->insertOne(
+		['email' => $email,"password":"google_signin"]);
+		$collection = $manager->food_delivery->customers;
+		$insertOneResult = $collection->insertOne(
+		['email' => $email]);
+	}
 } else {
   echo "0";
 }
