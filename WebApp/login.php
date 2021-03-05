@@ -20,6 +20,12 @@ if ($temp == "'''='") {
 	foreach($cursor as $document){
 		session_start();
 		$_SESSION["customer_id"]=$email;
+		if((String)$document->type=="1"){
+			$_SESSION["customer_typ"]="1";
+		}else if((String)$document->type=="2"){
+			$_SESSION["customer_typ"]="2";
+			$_SESSION["id"]=(String)$document->id;
+		}
 		echo "1";
 		exit();
 	}
