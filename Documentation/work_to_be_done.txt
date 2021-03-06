@@ -1,27 +1,26 @@
-collect menu description for all dishes
+*collect menu description for all dishes
 documentation
-database design for mongodb
-shifting to mongodb
+*database design for mongodb
+*shifting to mongodb
 
-explore complex queries for mongodb
 easy:
-	restaurant.php
-	retaurants.php
-	restaurant_search.php
-	dish_search.php
+g	restaurant.php
+g	retaurants.php
+g	restaurant_search.php
+g	dish_search.php
 complex:
 	history.php
 	home.php (statistics)
 
 new features :
 	easy: 
-		search by menu description
-		search by ingredients
-		signup for both customer and restaurant
-		add dishes from restaurant login
-		delete dishes from restaurant login
+g		search by menu description
+g		search by ingredients
+e		signup for both customer and restaurant
+e*		add dishes from restaurant login
+e*		delete dishes from restaurant login
 	complex : 
-		forgot password with smtp otp
-		edit restaurant details
-		edit dishes from restaurant login
-		view statistics from restaurant login
+e		forgot password with smtp otp
+e*		edit restaurant details
+e*		edit dishes from restaurant login
+e		view statistics from restaurant login

@@ -16,6 +16,6 @@ mycursor = mydb.cursor()
 mycursor.execute("SELECT * FROM login")
 login = mycursor.fetchall()
 for customer in login:
-	dic={"email":customer[0].lower(),"password":customer[1]}
+	dic={"email":customer[0].lower(),"password":customer[1],"type":"1"}
 	result = mycol.insert_one(dic)
 	print(str(result))
