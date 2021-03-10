@@ -17,8 +17,14 @@ if ($payload) {
 	$query = new \MongoDB\Driver\Query($filter);
 	$cursor = $manager->executeQuery("food_delivery.login",$query);
 	$flag=0;
+	$res_id="";
+	$type="";
 	foreach($cursor as $document){
 		$flag=1;
+		$type=$document->type;
+		try{
+			$res_id=$document->id;
+		}catch(Exception $e){}
 	}
 	if($flag==0){
 		$manager = new MongoDB\Client("mongodb+srv://food_delivery:contech%402021@food-delivery.3ukn0.mongodb.net/food_delivery?authSource=admin&replicaSet=atlas-o0xpuf-shard-0&w=majority&readPreference=primary&appname=MongoDB%20Compass&retryWrites=true&ssl=true");
@@ -31,6 +37,15 @@ if ($payload) {
 	}else{
 		echo "1";
 	}
+	$_SESSION["customer_id"]=$email;
+	if((String)$type=="1"){
+		$_SESSION["customer_typ"]="1";
+	}else if((String)$type=="2"){
+		$_SESSION["customer_typ"]="2";
+		$_SESSION["id"]=(String)$res_id;
+	}
+	echo "1";
+	exit();
 } else {
   echo "0";
 }
